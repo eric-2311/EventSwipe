@@ -23,7 +23,8 @@
   },
   "devDependencies": {},
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "postinstall": "webpack"
   },
   "repository": {
     "type": "git",
@@ -34,6 +35,10 @@
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/eric-2311/EventSwipe/issues"
+  },
+  "engines": {
+    "node": "10.13.0",
+    "npm": "6.4.1"
   },
   "homepage": "https://github.com/eric-2311/EventSwipe#readme"
 }
