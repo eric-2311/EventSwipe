@@ -1,6 +1,13 @@
-
+import { connect } from 'react-redux';
+import Greeting from './Greeting';
 
 const mSTP = state => ({
     currentUser: state.session.id,
-    // logout:
 })
+
+const mDTP = dispatch => ({
+    logout: () => dispatch(logout())
+})
+
+export default connect(mSTP, mDTP)(Greeting);
+
