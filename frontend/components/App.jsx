@@ -1,19 +1,21 @@
 import React from 'react';
-import { Route } from 'react-router-dom';
+import { Route, Switch } from 'react-router-dom';
+import { AuthRoute, ProtectedRoute } from '../util/route_util';
 
 import GreetingContainer from './greeting/Greeting_container';
 import LoginFormContainer from './session/login_form_container';
 import SignupFormContainer from './session/signup_form_container';
 
 const App = () => (
-    <div>
-        <header>
-            <h1>Welcome to EventSwipe!</h1>
+    <div className="nav-container">
+        <header className="nav">
+            <h1 className="nav-logo">eventswipe</h1>
             <GreetingContainer />
         </header>
-
-        <Route path="/login" component={LoginFormContainer} />
-        <Route path="/signup" component={SignupFormContainer} />
+        <Switch>
+            <AuthRoute exact path="/login" component={LoginFormContainer} />
+            <AuthRoute exact path="/signup" component={SignupFormContainer} />
+        </Switch>
     </div>
 )
 
