@@ -33,3 +33,9 @@ export const logout = () => dispatch => (
     SessionApiUtils.logout()
         .then(() => dispatch(logoutUser()))
 )
+
+export const recieveErrors = errors => ({
+    type: RECEIVE_SESSION_ERRORS,
+    errors
+})
+
