@@ -1,8 +1,9 @@
 import { connect } from 'react-redux';
 import Greeting from './Greeting';
+import { logout } from '../../actions/session_actions';
 
-const mSTP = state => ({
-    currentUser: state.session.id,
+const mSTP = ({ session, entities: { users } }) => ({
+    currentUser: users[session.id]
 })
 
 const mDTP = dispatch => ({
