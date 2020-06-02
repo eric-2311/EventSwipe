@@ -16,8 +16,8 @@ class Greeting extends React.Component {
         )} else {
                 return (
                     <div>
-                        <Link to='/signup'>Sign Up!</Link>
-                        <Link to='/login'>Log in!</Link>
+                        {/* <Link to='/signup'>Sign Up!</Link> */}
+                        <Link to='/login' className="sign-in-btn">Sign In</Link>
                     </div>
                 )
             }

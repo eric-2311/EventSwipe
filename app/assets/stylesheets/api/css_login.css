@@ -2,9 +2,9 @@
  .login-form-container{
     display: flex;
     margin: auto;
-    margin-top: 150px;
+    margin-top: 15px;
     padding: 20px;
-    width: 500px;
+    /* width: 500px; */
     justify-content: center;
     text-align: center;
     font-size: 18px;
@@ -33,11 +33,17 @@
 }
 
 .login-logo{
-    font-family: Arial, Helvetica, cursive;
-    /* margin-top: 20px; */
+    /* font-family: Arial, Helvetica, cursive; */
+    /* text-decoration: none; */
+    font-family: 'Work Sans', sans-serif;
     color: red;
-    font-size: 70px;
+    font-size: 90px;
     font-weight: bold;
-    transform: rotate(330deg);
+    transform: rotate(340deg);
     
+}
+
+.login-message{
+    color: #797B8B;
+    font-size: 14px;
 }
