@@ -19,7 +19,8 @@ class SessionForm extends React.Component {
   handleSubmit(e) {
     e.preventDefault();
     const user = Object.assign({}, this.state);
-    this.props.processForm(user);
+    this.props.processForm(user)
+        .then(() => this.props.history.push('/'))
   }
 
   renderErrors() {
@@ -43,7 +44,7 @@ class SessionForm extends React.Component {
           <br/>
           <p className="login-header">Signup or log in</p>
           <br/>
-          <p className="login-message">Use email to get started</p>
+          <p className="login-message">Enter your email to get started</p>
           {this.renderErrors()}
           <div className="login-form">
             <br/>
