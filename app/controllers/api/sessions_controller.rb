@@ -23,4 +23,14 @@ class Api::SessionsController < ApplicationController
             render json: '404 EventSwipe Error'
         end
     end
+
+    def user_exists
+        @user = User.find_by(email: params[:email])
+
+        if @user.nil?
+            return false
+        else
+            return true
+        end
+    end
 end
