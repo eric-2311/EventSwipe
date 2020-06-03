@@ -5,7 +5,7 @@ class Api::UsersController < ApplicationController
 
         if @user.save!
             login(@user)
-            render root_url
+            render json: @user
         else
             render json: @user.errors.full_messages
         end

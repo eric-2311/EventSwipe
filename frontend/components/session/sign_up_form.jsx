@@ -1,15 +1,17 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, Redirect } from 'react-router-dom';
 
 class SignUpForm extends React.Component {
     constructor(props){
         super(props);
         this.state = {
             email: '',
-            firstName: '',
-            lastName: '',
+            first_name: '',
+            last_name: '',
             password: ''
         }
+
+        this.handleSubmit = this.handleSubmit.bind(this);
     }
 
     update(field){
@@ -21,10 +23,22 @@ class SignUpForm extends React.Component {
     handleSubmit(e){
         e.preventDefault();
         const user = Object.assign({}, this.state)
-        this.props.processForm(user);
+        this.props.processForm(user)
+        this.setState({
+            email: '',
+            first_name: '',
+            last_name: '',
+            password: ''
+        })
+            // .then(this.props.login(this.state))
+        // <Redirect to="/" />
     }
     
     render(){
+        // if (this.props.login(this.state)){
+        //     return <Redirect to="/"/>
+        // }
+
         return (
             <div className="sign-up-form-container">
                 <form onSubmit={this.handleSubmit}>
@@ -41,16 +55,16 @@ class SignUpForm extends React.Component {
                             <input
                             type="text"
                             placeholder="first name"
-                            value={this.state.firstName}
-                            onChange={this.update('firstName')}
+                            value={this.state.first_name}
+                            onChange={this.update('first_name')}
                             size="9"/>
                         </label>
                         <label className="sign-up-name">
                             <input
                             type="text"
                             placeholder="last name"
-                            value={this.state.lastName}
-                            onChange={this.update('lastName')}
+                            value={this.state.last_name}
+                            onChange={this.update('last_name')}
                             size="9"/>
                         </label>
                         </div>
