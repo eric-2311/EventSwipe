@@ -7,7 +7,7 @@ import SignUpForm from './sign_up_form';
 const mSTP = ({ errors }) => {
   return {
     errors: errors.session,
-    formType: 'Sign Up',
+    // formType: 'Sign Up',
     // navLink: <Link to="/login">Already a member? Sign in!</Link>,
   };
 };

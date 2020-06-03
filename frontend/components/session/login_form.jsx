@@ -13,12 +13,12 @@ class LoginForm extends React.Component {
   }
 
   update(field) {
-    debugger;
+    // debugger;
     return e => this.setState( {[field]: e.currentTarget.value });
   }
 
   handleSubmit(e) {
-    debugger;
+    // debugger;
     e.preventDefault();
     const user = Object.assign({}, this.state);
     this.props.processForm(user)
@@ -39,7 +39,7 @@ class LoginForm extends React.Component {
 
   render() {
     if (this.props.email){
-        return <Redirect to="/" />
+      return <Redirect to="/" />
     }
 
     return (
@@ -54,18 +54,20 @@ class LoginForm extends React.Component {
           {this.renderErrors()}
           <div className="login-form">
             <br/>
-            <label>Email:
+            <label>
               <input type="text"
                 value={this.state.email}
+                placeholder="email"
                 onChange={this.update('email')}
                 className="login-input"
               />
             </label>
             <br/>
             <br/>
-            <label>Password:
+            <label>
               <input type="password"
                 value={this.state.password}
+                placeholder="password"
                 onChange={this.update('password')}
                 className="login-input"
               />

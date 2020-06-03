@@ -8,10 +8,10 @@ class Api::SessionsController < ApplicationController
 
         if @user
             login(@user)
-            redirect_to root_url
+            render json: @user
         else
-            render json: 'Invalid credentials'
-            redirect_to root_url
+            render json: ['Invalid credentials']
+            # redirect_to root_url
         end
     end
 
