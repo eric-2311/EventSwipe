@@ -1,0 +1,30 @@
+.nav{
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1px solid lightgray;
+    padding: 18px;
+}
+
+.nav-logo{
+    color: red;
+    font-size: 22px;
+    font-family: Arial, Helvetica, cursive;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.sign-in-btn{
+    text-decoration: none;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 14px;
+    color: #797B8B;
+}
+
+.profile-pic{
+    height: 30px;
+}
+
+.nav-right{
+    
+}
+
