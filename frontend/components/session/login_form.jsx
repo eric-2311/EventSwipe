@@ -5,7 +5,7 @@ class LoginForm extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      email: this.props.email,
+      email: '',
       password: ''
     };
 
@@ -38,7 +38,7 @@ class LoginForm extends React.Component {
   }
 
   render() {
-    if (this.props.user){
+    if (this.props.email){
         return <Redirect to="/" />
     }
 
