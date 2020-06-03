@@ -38,7 +38,10 @@ class LoginForm extends React.Component {
   }
 
   render() {
+<<<<<<< HEAD
     debugger;
+=======
+>>>>>>> auth
     if (this.props.email){
         return <Redirect to="/" />
     }
