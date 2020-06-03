@@ -1,5 +1,5 @@
 import React from 'react';
-import { Switch, Link } from 'react-router-dom';
+import { Switch, Link, Route } from 'react-router-dom';
 import { AuthRoute } from '../util/route_util';
 
 import GreetingContainer from './greeting/Greeting_container';
@@ -12,10 +12,10 @@ const App = () => (
             <Link to="/" className="nav-logo">eventswipe</Link>
             <GreetingContainer />
         </header>
-        <Switch>
+        {/* <Switch> */}
             <AuthRoute exact path="/login" component={LoginFormContainer} />
             <AuthRoute exact path="/signup" component={SignupFormContainer} />
-        </Switch>
+        {/* </Switch> */}
     </div>
 )
 

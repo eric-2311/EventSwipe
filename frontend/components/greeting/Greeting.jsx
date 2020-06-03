@@ -9,9 +9,13 @@ class Greeting extends React.Component {
     render(){
         if (this.props.currentUser){
             return (
-                <div>
-                    <h1>Welcome!</h1>
-                    <button onClick={this.props.logout}>Logout</button>
+                <div className="nav-right">
+                    <div className="menu-btn">
+                        <img src={window.profpicURL} className="profile-pic"/>
+                    </div>
+                    <div className="menu-dropdown">
+                        <button onClick={this.props.logout}>Logout</button>
+                    </div>
                 </div>
         )} else {
                 return (

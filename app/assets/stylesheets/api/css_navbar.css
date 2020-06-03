@@ -7,7 +7,7 @@
 
 .nav-logo{
     color: red;
-    font-size: 20px;
+    font-size: 22px;
     font-family: Arial, Helvetica, cursive;
     font-weight: bold;
     text-decoration: none;
@@ -19,3 +19,12 @@
     font-size: 14px;
     color: #797B8B;
 }
+
+.profile-pic{
+    height: 30px;
+}
+
+.nav-right{
+    
+}
+

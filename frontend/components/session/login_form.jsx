@@ -1,26 +1,28 @@
 import React from 'react';
+import { Redirect } from 'react-router-dom';
 
-class SessionForm extends React.Component {
+class LoginForm extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      email: '',
+      email: this.props.email,
       password: ''
     };
+
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
   update(field) {
-    return e => this.setState({
-      [field]: e.currentTarget.value
-    });
+    debugger;
+    return e => this.setState( {[field]: e.currentTarget.value });
   }
 
   handleSubmit(e) {
+    debugger;
     e.preventDefault();
     const user = Object.assign({}, this.state);
     this.props.processForm(user)
-        .then(() => this.props.history.push('/'))
+        // .then(() => this.props.history.push('/'))
   }
 
   renderErrors() {
@@ -36,6 +38,10 @@ class SessionForm extends React.Component {
   }
 
   render() {
+    if (this.props.user){
+        return <Redirect to="/" />
+    }
+
     return (
       <div className="login-form-container">
         
@@ -74,5 +80,5 @@ class SessionForm extends React.Component {
   }
 }
 
-export default SessionForm;
+export default LoginForm;
 
