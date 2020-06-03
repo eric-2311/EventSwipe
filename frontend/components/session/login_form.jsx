@@ -42,6 +42,10 @@ class LoginForm extends React.Component {
       return <Redirect to="/" />
     }
 
+    // if (this.props.exists){
+    //   <Redirect to="/" />
+    // }
+
     return (
       <div className="login-form-container">
         

@@ -1,9 +1,20 @@
 class Api::UsersController < ApplicationController
 
+    def index
+        @user = User.find_by(email: email)
+
+        if @user
+            render json: @user
+        else
+            render json: ["ERROR"]
+        end
+    end
+
     def create
         @user = User.new(user_params)
 
         if @user.save!
+            # @user.exists = true
             login(@user)
             render json: @user
         else

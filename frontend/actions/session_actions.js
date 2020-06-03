@@ -47,3 +47,7 @@ export const recieveErrors = errors => ({
     errors
 })
 
+export const email = () => ({
+    type: RECEIVE_EMAIL,
+    
+})

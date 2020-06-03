@@ -24,7 +24,19 @@
     height: 30px;
 }
 
-.nav-right{
-    
+.menu-dropdown{
+    display: none;
+    position: absolute;
+}
+
+.menu-btn:hover {
+    cursor: pointer;
+}
+
+.menu-btn:hover .menu-dropdown{
+    display: block;
+    background-color: white;
+    z-index: 999;
+    list-style: none;
 }
 
