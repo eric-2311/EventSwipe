@@ -5,7 +5,7 @@ class LoginForm extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      email: this.props.email,
+      email: '',
       password: ''
     };
 
@@ -13,12 +13,12 @@ class LoginForm extends React.Component {
   }
 
   update(field) {
-    debugger;
+    // debugger;
     return e => this.setState( {[field]: e.currentTarget.value });
   }
 
   handleSubmit(e) {
-    debugger;
+    // debugger;
     e.preventDefault();
     const user = Object.assign({}, this.state);
     this.props.processForm(user)
@@ -38,7 +38,8 @@ class LoginForm extends React.Component {
   }
 
   render() {
-    if (this.props.user){
+    debugger;
+    if (this.props.email){
         return <Redirect to="/" />
     }
 
