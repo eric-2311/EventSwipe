@@ -8,7 +8,7 @@ class Greeting extends React.Component {
 
     dropdown(){
         // let menu = document.getElementsByClassName('menu-dropdown');
-        // // debugger;
+        // // ;
         // if (menu.display === "none"){
         //     menu.display = "block" 
         // } else {
@@ -17,13 +17,18 @@ class Greeting extends React.Component {
     }
 
     render(){
+        // ;
         if (this.props.currentUser){
             return (
                 <div className="nav-right">
                     <div className="menu-btn">
                         <img src={window.profpicURL} className="profile-pic"/>
                         <ul className="menu-dropdown">
-                            <li><button onClick={this.props.logout}>Logout</button></li>
+                            <li className="menu-item"><button onClick={this.props.logout}>Logout</button></li>
+                            <li className="menu-item">List Item</li>
+                            <li className="menu-item">List Item</li>
+                            <li className="menu-item">List Item</li>
+                            <li className="menu-item">List Item</li>
                         </ul>
                     </div>
                 </div>

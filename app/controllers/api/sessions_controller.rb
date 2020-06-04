@@ -24,13 +24,13 @@ class Api::SessionsController < ApplicationController
         end
     end
 
-    def user_exists
-        @user = User.find_by(email: params[:email])
+    # def user_exists
+    #     @user = User.find_by(email: params[:email])
 
-        if @user.nil?
-            render json: { email: email, exists: false }
-        else
-            render json: { email: email, exists: true }
-        end
-    end
+    #     if @user.nil?
+    #         render json: @user
+    #     else
+    #         render json: 
+    #     end
+    # end
 end

@@ -21,9 +21,10 @@ export const logout = () => {
     })
 }
 
-export const email = () => {
+export const getEmail = email => {
+    ;
     return $.ajax({
         method: 'GET',
-        url: '/api/index'
+        url: `/api/users/email?email=${email}`
     })
 }

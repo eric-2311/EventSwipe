@@ -5,24 +5,32 @@ class LoginForm extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
+      // currentStep: 1,
       email: '',
-      password: ''
+      password: '',
+      renderPass: false
     };
 
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.renderPassInput = this.renderPassInput.bind(this);
+    this.renderEmailInput = this.renderEmailInput.bind(this);
   }
 
   update(field) {
-    // debugger;
+    // ;
     return e => this.setState( {[field]: e.currentTarget.value });
   }
 
   handleSubmit(e) {
-    // debugger;
+    ;
     e.preventDefault();
     const user = Object.assign({}, this.state);
-    this.props.processForm(user)
-        // .then(() => this.props.history.push('/'))
+    if (this.state.renderPass){
+      this.props.processForm(user)
+    } else{
+      this.props.receiveEmail(this.state.email)
+          .then(this.setState({ renderPass: true }))
+    }
   }
 
   renderErrors() {
@@ -37,8 +45,49 @@ class LoginForm extends React.Component {
     );
   }
 
+  renderPassInput(){
+    if (this.state.renderPass === true){
+      return (
+        <label>
+        <input type="password"
+          value={this.state.password}
+          placeholder="password"
+          onChange={this.update('password')}
+          className="login-input"
+        />
+      </label>
+      )
+    } else{
+      return null;
+    }
+  }
+
+  renderEmailInput(){
+    if (this.state.renderPass === true){
+      return <div>Welcome {this.state.email}</div> //input and label
+    } else{
+      return (
+        <label>
+          <input type="text"
+            value={this.state.email}
+            placeholder="email"
+            onChange={this.update('email')}
+            className="login-input"/>
+        </label>
+      );
+    }
+  }
+
+  // chooseform() {
+    //   // if // props email returns ...
+    //   // bind this!
+    //   // null? return
+    //   // else => return something
+    //   // custom email view for backend
+    // }
+
   render() {
-    if (this.props.email){
+    if (this.props.renderPass){
       return <Redirect to="/" />
     }
 
@@ -58,15 +107,16 @@ class LoginForm extends React.Component {
           {this.renderErrors()}
           <div className="login-form">
             <br/>
-            <label>
+            {/* <label>
               <input type="text"
                 value={this.state.email}
                 placeholder="email"
                 onChange={this.update('email')}
-                className="login-input"
-              />
-            </label>
-            <br/>
+                className="login-input"/>
+            </label> */}
+            {this.renderEmailInput()}
+            {this.renderPassInput()}
+            {/* <br/>
             <br/>
             <label>
               <input type="password"
@@ -75,10 +125,13 @@ class LoginForm extends React.Component {
                 onChange={this.update('password')}
                 className="login-input"
               />
-            </label>
+            </label> */}
             <br/>
             <br/>
             <input className="session-submit" type="submit" value="Get Started" />
+            <input className="session-submit2" type="submit" value={this.props.processForm(
+              {email: "demomail", password: "demopassword"}
+            )} />
           </div>
         </form>
       </div>

@@ -24,13 +24,14 @@ class SignUpForm extends React.Component {
         e.preventDefault();
         const user = Object.assign({}, this.state)
         this.props.processForm(user)
+            // .then(this.props.login(this.state))
         this.setState({
             email: '',
             first_name: '',
             last_name: '',
             password: ''
         })
-            // .then(this.props.login(this.state))
+            // 
         // <Redirect to="/" />
     }
     

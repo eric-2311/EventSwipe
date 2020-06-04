@@ -26,6 +26,15 @@
      background-color: red;
  }
 
+ .session-submit2{
+    width: 330px;
+    height: 45px;
+    font-size: 14px;
+    border-radius: 7px;
+    color: white;
+    background-color: blue;
+}
+
 .login-header{
     font-size: 22px;
     color: rgb(31, 19, 60);
