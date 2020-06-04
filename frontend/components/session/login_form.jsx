@@ -130,11 +130,11 @@ class LoginForm extends React.Component {
             <br/>
             <br/>
             <input className="session-submit" type="submit" value="Get Started" />
-            {/* <input className="session-submit2" 
+            <input className="session-submit2" 
                 type="submit" value="Demo Login" 
-                onSubmit={this.props.processForm(
+                onClick={() => this.props.processForm(
               {email: "demo@mail.com", password: "demopassword"}
-              )} /> */}
+              )} />
           </div>
         </form>
       </div>

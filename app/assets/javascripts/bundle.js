@@ -547,6 +547,8 @@ var LoginForm = /*#__PURE__*/function (_React$Component) {
   }, {
     key: "render",
     value: function render() {
+      var _this4 = this;
+
       if (this.props.renderPass) {
         return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Redirect"], {
           to: "/"
@@ -573,6 +575,16 @@ var LoginForm = /*#__PURE__*/function (_React$Component) {
         className: "session-submit",
         type: "submit",
         value: "Get Started"
+      }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+        className: "session-submit2",
+        type: "submit",
+        value: "Demo Login",
+        onClick: function onClick() {
+          return _this4.props.processForm({
+            email: "demo@mail.com",
+            password: "demopassword"
+          });
+        }
       }))));
     }
   }]);
