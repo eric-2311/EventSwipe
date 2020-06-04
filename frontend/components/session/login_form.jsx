@@ -22,14 +22,15 @@ class LoginForm extends React.Component {
   }
 
   handleSubmit(e) {
-    ;
+    debugger;
     e.preventDefault();
     const user = Object.assign({}, this.state);
     if (this.state.renderPass){
+      debugger;
       this.props.processForm(user)
     } else{
       this.props.receiveEmail(this.state.email)
-          .then(this.setState({ renderPass: true }))
+          .then(() => this.setState({ renderPass: true }))
     }
   }
 
@@ -129,9 +130,11 @@ class LoginForm extends React.Component {
             <br/>
             <br/>
             <input className="session-submit" type="submit" value="Get Started" />
-            <input className="session-submit2" type="submit" value={this.props.processForm(
-              {email: "demomail", password: "demopassword"}
-            )} />
+            {/* <input className="session-submit2" 
+                type="submit" value="Demo Login" 
+                onSubmit={this.props.processForm(
+              {email: "demo@mail.com", password: "demopassword"}
+              )} /> */}
           </div>
         </form>
       </div>

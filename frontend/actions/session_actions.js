@@ -49,7 +49,6 @@ export const recieveErrors = errors => ({
 })
 
 const getEmail = email => {
-    ;
     return ({type: RECEIVE_EMAIL,
     email})
 }
@@ -58,7 +57,6 @@ export const validateEmail = email => dispatch => {
     
     return (SessionApiUtils.getEmail(email)
         .then(email => {
-            ;
             dispatch(getEmail(email))
         }))
 }

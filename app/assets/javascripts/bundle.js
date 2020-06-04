@@ -171,7 +171,6 @@ var recieveErrors = function recieveErrors(errors) {
 };
 
 var getEmail = function getEmail(email) {
-  ;
   return {
     type: RECEIVE_EMAIL,
     email: email
@@ -181,7 +180,6 @@ var getEmail = function getEmail(email) {
 var validateEmail = function validateEmail(email) {
   return function (dispatch) {
     return _util_session_api_util__WEBPACK_IMPORTED_MODULE_0__["getEmail"](email).then(function (email) {
-      ;
       dispatch(getEmail(email));
     });
   };
@@ -483,16 +481,21 @@ var LoginForm = /*#__PURE__*/function (_React$Component) {
   }, {
     key: "handleSubmit",
     value: function handleSubmit(e) {
-      ;
+      var _this3 = this;
+
+      debugger;
       e.preventDefault();
       var user = Object.assign({}, this.state);
 
       if (this.state.renderPass) {
+        debugger;
         this.props.processForm(user);
       } else {
-        this.props.receiveEmail(this.state.email).then(this.setState({
-          renderPass: true
-        }));
+        this.props.receiveEmail(this.state.email).then(function () {
+          return _this3.setState({
+            renderPass: true
+          });
+        });
       }
     }
   }, {
@@ -570,13 +573,6 @@ var LoginForm = /*#__PURE__*/function (_React$Component) {
         className: "session-submit",
         type: "submit",
         value: "Get Started"
-      }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
-        className: "session-submit2",
-        type: "submit",
-        value: this.props.processForm({
-          email: "demomail",
-          password: "demopassword"
-        })
       }))));
     }
   }]);
@@ -961,9 +957,9 @@ document.addEventListener('DOMContentLoaded', function () {
   // window.signup = signup;
   // window.login = login;
   // window.logout = logout;
-  // window.getState = store.getState;
-  // window.dispatch = store.dispatch;
 
+
+  window.getState = store.getState; // window.dispatch = store.dispatch;
 
   react_dom__WEBPACK_IMPORTED_MODULE_1___default.a.render( /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_root__WEBPACK_IMPORTED_MODULE_3__["default"], {
     store: store
@@ -1091,7 +1087,7 @@ var sessionReducer = function sessionReducer() {
   var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : _nullUser;
   var action = arguments.length > 1 ? arguments[1] : undefined;
   Object.freeze(state);
-  ;
+  debugger;
 
   switch (action.type) {
     case _actions_session_actions__WEBPACK_IMPORTED_MODULE_0__["RECEIVE_CURRENT_USER"]:
