@@ -8,9 +8,11 @@
     font-size: 26px;
     font-weight: bold;
     padding: 20px;
+    font-family: Arial, Helvetica, cursive;
 }
 
 .banner-purple{
     color: purple;
     padding-left: 8px;
+    font-family: Arial, Helvetica, cursive;
 }
