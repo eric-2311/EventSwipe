@@ -488,7 +488,7 @@ var LoginForm = /*#__PURE__*/function (_React$Component) {
       var user = Object.assign({}, this.state);
 
       if (this.state.renderPass) {
-        debugger;
+        // debugger;
         this.props.processForm(user);
       } else {
         this.props.receiveEmail(this.state.email).then(function () {
@@ -575,7 +575,9 @@ var LoginForm = /*#__PURE__*/function (_React$Component) {
         className: "session-submit",
         type: "submit",
         value: "Get Started"
-      }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+      }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
+        className: "login-message"
+      }, "or"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
         className: "session-submit2",
         type: "submit",
         value: "Demo Login",
@@ -969,9 +971,9 @@ document.addEventListener('DOMContentLoaded', function () {
   // window.signup = signup;
   // window.login = login;
   // window.logout = logout;
+  // window.getState = store.getState;
+  // window.dispatch = store.dispatch;
 
-
-  window.getState = store.getState; // window.dispatch = store.dispatch;
 
   react_dom__WEBPACK_IMPORTED_MODULE_1___default.a.render( /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_root__WEBPACK_IMPORTED_MODULE_3__["default"], {
     store: store

@@ -26,7 +26,7 @@ class LoginForm extends React.Component {
     e.preventDefault();
     const user = Object.assign({}, this.state);
     if (this.state.renderPass){
-      debugger;
+      // debugger;
       this.props.processForm(user)
     } else{
       this.props.receiveEmail(this.state.email)
@@ -130,6 +130,10 @@ class LoginForm extends React.Component {
             <br/>
             <br/>
             <input className="session-submit" type="submit" value="Get Started" />
+            <br/>
+            <br/>
+            <p className="login-message">or</p>
+            <br/>
             <input className="session-submit2" 
                 type="submit" value="Demo Login" 
                 onClick={() => this.props.processForm(
