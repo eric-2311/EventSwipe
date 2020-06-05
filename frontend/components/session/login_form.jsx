@@ -22,7 +22,7 @@ class LoginForm extends React.Component {
   }
 
   handleSubmit(e) {
-    debugger;
+    // debugger;
     e.preventDefault();
     const user = Object.assign({}, this.state);
     if (this.state.renderPass){
@@ -102,7 +102,7 @@ class LoginForm extends React.Component {
         <form onSubmit={this.handleSubmit} className="login-form-box">
           <p className="login-logo">e</p>
           <br/>
-          <p className="login-header">Signup or log in</p>
+          <p className="login-header">Sign up or log in</p>
           <br/>
           <p className="login-message">Enter your email to get started</p>
           {this.renderErrors()}

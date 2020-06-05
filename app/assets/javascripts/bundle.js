@@ -483,7 +483,7 @@ var LoginForm = /*#__PURE__*/function (_React$Component) {
     value: function handleSubmit(e) {
       var _this3 = this;
 
-      debugger;
+      // debugger;
       e.preventDefault();
       var user = Object.assign({}, this.state);
 
@@ -567,7 +567,7 @@ var LoginForm = /*#__PURE__*/function (_React$Component) {
         className: "login-logo"
       }, "e"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
         className: "login-header"
-      }, "Signup or log in"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
+      }, "Sign up or log in"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
         className: "login-message"
       }, "Enter your email to get started"), this.renderErrors(), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "login-form"
@@ -1098,8 +1098,7 @@ var _nullUser = Object.freeze({
 var sessionReducer = function sessionReducer() {
   var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : _nullUser;
   var action = arguments.length > 1 ? arguments[1] : undefined;
-  Object.freeze(state);
-  debugger;
+  Object.freeze(state); // debugger;
 
   switch (action.type) {
     case _actions_session_actions__WEBPACK_IMPORTED_MODULE_0__["RECEIVE_CURRENT_USER"]:
