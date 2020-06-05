@@ -1,0 +1,21 @@
+.category-nav{
+    display: flex;
+}
+
+.c-nav-item{
+    display: flex;
+    /* justify-content: center; */
+    /* margin: auto; */
+    text-align: center;
+    /* align-items: center; */
+    padding: 10px 20px;
+    color: #797B8B;
+    /* padding-bottom: 10px; */
+    /* border: 1px solid black; */
+}
+
+.c-nav-item:hover{
+    color: purple;
+    cursor: pointer;
+    border-bottom: 3px solid purple;
+}
