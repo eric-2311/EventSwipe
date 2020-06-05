@@ -87,17 +87,10 @@ class LoginForm extends React.Component {
     // }
 
   render() {
-<<<<<<< HEAD
-<<<<<<< HEAD
-    debugger;
-=======
->>>>>>> auth
     if (this.props.email){
         return <Redirect to="/" />
-=======
     if (this.props.renderPass){
       return <Redirect to="/" />
->>>>>>> auth
     }
 
     // if (this.props.exists){
