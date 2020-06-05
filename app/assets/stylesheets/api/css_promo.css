@@ -1,6 +1,10 @@
 .promo{
+    /* padding-left: 100px; */
+    /* display: flex; */
+    
     border: 1px solid black;
     height: 500px;
+    width: 900px;
 }
 
 .promo-header{
