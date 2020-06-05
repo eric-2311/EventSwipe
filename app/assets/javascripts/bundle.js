@@ -367,132 +367,9 @@ var Root = function Root(_ref) {
   !*** ./frontend/components/session/login_form.jsx ***!
   \****************************************************/
 /*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
+/***/ (function(module, exports) {
 
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
-function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
-
-function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
-
-function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
-
-function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
-
-function _createSuper(Derived) { var hasNativeReflectConstruct = _isNativeReflectConstruct(); return function _createSuperInternal() { var Super = _getPrototypeOf(Derived), result; if (hasNativeReflectConstruct) { var NewTarget = _getPrototypeOf(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return _possibleConstructorReturn(this, result); }; }
-
-function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
-
-function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
-
-function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Date.prototype.toString.call(Reflect.construct(Date, [], function () {})); return true; } catch (e) { return false; } }
-
-function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
-
-
-
-
-var LoginForm = /*#__PURE__*/function (_React$Component) {
-  _inherits(LoginForm, _React$Component);
-
-  var _super = _createSuper(LoginForm);
-
-  function LoginForm(props) {
-    var _this;
-
-    _classCallCheck(this, LoginForm);
-
-    _this = _super.call(this, props);
-    _this.state = {
-      email: '',
-      password: ''
-    };
-    _this.handleSubmit = _this.handleSubmit.bind(_assertThisInitialized(_this));
-    return _this;
-  }
-
-  _createClass(LoginForm, [{
-    key: "update",
-    value: function update(field) {
-      var _this2 = this;
-
-      // debugger;
-      return function (e) {
-        return _this2.setState(_defineProperty({}, field, e.currentTarget.value));
-      };
-    }
-  }, {
-    key: "handleSubmit",
-    value: function handleSubmit(e) {
-      // debugger;
-      e.preventDefault();
-      var user = Object.assign({}, this.state);
-      this.props.processForm(user); // .then(() => this.props.history.push('/'))
-    }
-  }, {
-    key: "renderErrors",
-    value: function renderErrors() {
-      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", null, this.props.errors.map(function (error, i) {
-        return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
-          key: "error-".concat(i)
-        }, error);
-      }));
-    }
-  }, {
-    key: "render",
-    value: function render() {
-      debugger;
-
-      if (this.props.email) {
-        return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Redirect"], {
-          to: "/"
-        });
-      }
-
-      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "login-form-container"
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
-        onSubmit: this.handleSubmit,
-        className: "login-form-box"
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
-        className: "login-logo"
-      }, "e"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
-        className: "login-header"
-      }, "Signup or log in"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
-        className: "login-message"
-      }, "Enter your email to get started"), this.renderErrors(), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "login-form"
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", null, "Email:", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
-        type: "text",
-        value: this.state.email,
-        onChange: this.update('email'),
-        className: "login-input"
-      })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", null, "Password:", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
-        type: "password",
-        value: this.state.password,
-        onChange: this.update('password'),
-        className: "login-input"
-      })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
-        className: "session-submit",
-        type: "submit",
-        value: "Get Started"
-      }))));
-    }
-  }]);
-
-  return LoginForm;
-}(react__WEBPACK_IMPORTED_MODULE_0___default.a.Component);
-
-/* harmony default export */ __webpack_exports__["default"] = (LoginForm);
+throw new Error("Module build failed (from ./node_modules/babel-loader/lib/index.js):\nSyntaxError: /home/eric/Desktop/EventSwipe/frontend/components/session/login_form.jsx: Unexpected token (41:1)\n\n\u001b[0m \u001b[90m 39 | \u001b[39m\u001b[0m\n\u001b[0m \u001b[90m 40 | \u001b[39m  render() {\u001b[0m\n\u001b[0m\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 41 | \u001b[39m\u001b[33m<<\u001b[39m\u001b[33m<<\u001b[39m\u001b[33m<<\u001b[39m\u001b[33m<\u001b[39m \u001b[33mHEAD\u001b[39m\u001b[0m\n\u001b[0m \u001b[90m    | \u001b[39m \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\u001b[0m\n\u001b[0m \u001b[90m 42 | \u001b[39m    \u001b[36mdebugger\u001b[39m\u001b[33m;\u001b[39m\u001b[0m\n\u001b[0m \u001b[90m 43 | \u001b[39m\u001b[33m===\u001b[39m\u001b[33m===\u001b[39m\u001b[33m=\u001b[39m\u001b[0m\n\u001b[0m \u001b[90m 44 | \u001b[39m\u001b[33m>>>\u001b[39m\u001b[33m>>>\u001b[39m\u001b[33m>\u001b[39m auth\u001b[0m\n    at Object._raise (/home/eric/Desktop/EventSwipe/node_modules/@babel/parser/lib/index.js:746:17)\n    at Object.raiseWithData (/home/eric/Desktop/EventSwipe/node_modules/@babel/parser/lib/index.js:739:17)\n    at Object.raise (/home/eric/Desktop/EventSwipe/node_modules/@babel/parser/lib/index.js:733:17)\n    at Object.unexpected (/home/eric/Desktop/EventSwipe/node_modules/@babel/parser/lib/index.js:8807:16)\n    at Object.jsxParseIdentifier (/home/eric/Desktop/EventSwipe/node_modules/@babel/parser/lib/index.js:4412:12)\n    at Object.jsxParseNamespacedName (/home/eric/Desktop/EventSwipe/node_modules/@babel/parser/lib/index.js:4422:23)\n    at Object.jsxParseElementName (/home/eric/Desktop/EventSwipe/node_modules/@babel/parser/lib/index.js:4433:21)\n    at Object.jsxParseOpeningElementAt (/home/eric/Desktop/EventSwipe/node_modules/@babel/parser/lib/index.js:4519:22)\n    at Object.jsxParseElementAt (/home/eric/Desktop/EventSwipe/node_modules/@babel/parser/lib/index.js:4552:33)\n    at Object.jsxParseElement (/home/eric/Desktop/EventSwipe/node_modules/@babel/parser/lib/index.js:4626:17)\n    at Object.parseExprAtom (/home/eric/Desktop/EventSwipe/node_modules/@babel/parser/lib/index.js:4633:19)\n    at Object.parseExprSubscripts (/home/eric/Desktop/EventSwipe/node_modules/@babel/parser/lib/index.js:9656:23)\n    at Object.parseMaybeUnary (/home/eric/Desktop/EventSwipe/node_modules/@babel/parser/lib/index.js:9636:21)\n    at Object.parseExprOps (/home/eric/Desktop/EventSwipe/node_modules/@babel/parser/lib/index.js:9506:23)\n    at Object.parseMaybeConditional (/home/eric/Desktop/EventSwipe/node_modules/@babel/parser/lib/index.js:9479:23)\n    at Object.parseMaybeAssign (/home/eric/Desktop/EventSwipe/node_modules/@babel/parser/lib/index.js:9434:21)\n    at Object.parseExpression (/home/eric/Desktop/EventSwipe/node_modules/@babel/parser/lib/index.js:9386:23)\n    at Object.parseStatementContent (/home/eric/Desktop/EventSwipe/node_modules/@babel/parser/lib/index.js:11285:23)\n    at Object.parseStatement (/home/eric/Desktop/EventSwipe/node_modules/@babel/parser/lib/index.js:11156:17)\n    at Object.parseBlockOrModuleBlockBody (/home/eric/Desktop/EventSwipe/node_modules/@babel/parser/lib/index.js:11731:25)\n    at Object.parseBlockBody (/home/eric/Desktop/EventSwipe/node_modules/@babel/parser/lib/index.js:11717:10)\n    at Object.parseBlock (/home/eric/Desktop/EventSwipe/node_modules/@babel/parser/lib/index.js:11701:10)\n    at Object.parseFunctionBody (/home/eric/Desktop/EventSwipe/node_modules/@babel/parser/lib/index.js:10708:24)\n    at Object.parseFunctionBodyAndFinish (/home/eric/Desktop/EventSwipe/node_modules/@babel/parser/lib/index.js:10691:10)\n    at Object.parseMethod (/home/eric/Desktop/EventSwipe/node_modules/@babel/parser/lib/index.js:10653:10)\n    at Object.pushClassMethod (/home/eric/Desktop/EventSwipe/node_modules/@babel/parser/lib/index.js:12156:30)\n    at Object.parseClassMemberWithIsStatic (/home/eric/Desktop/EventSwipe/node_modules/@babel/parser/lib/index.js:12073:12)\n    at Object.parseClassMember (/home/eric/Desktop/EventSwipe/node_modules/@babel/parser/lib/index.js:12015:10)\n    at withTopicForbiddingContext (/home/eric/Desktop/EventSwipe/node_modules/@babel/parser/lib/index.js:11960:14)\n    at Object.withTopicForbiddingContext (/home/eric/Desktop/EventSwipe/node_modules/@babel/parser/lib/index.js:11031:14)");
 
 /***/ }),
 
@@ -798,37 +675,9 @@ var sessionErrorsReducer = function sessionErrorsReducer() {
   !*** ./frontend/reducers/session_reducer.js ***!
   \**********************************************/
 /*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
+/***/ (function(module, exports) {
 
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _actions_session_actions__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../actions/session_actions */ "./frontend/actions/session_actions.js");
-
-
-var _nullUser = Object.freeze({
-  id: null
-});
-
-var sessionReducer = function sessionReducer() {
-  var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : _nullUser;
-  var action = arguments.length > 1 ? arguments[1] : undefined;
-  Object.freeze(state);
-
-  switch (action.type) {
-    case _actions_session_actions__WEBPACK_IMPORTED_MODULE_0__["RECEIVE_CURRENT_USER"]:
-      return Object.assign({}, state, {
-        id: action.currentUser.id
-      });
-
-    case _actions_session_actions__WEBPACK_IMPORTED_MODULE_0__["LOGOUT_CURRENT_USER"]:
-      return _nullUser;
-
-    default:
-      return state;
-  }
-};
-
-/* harmony default export */ __webpack_exports__["default"] = (sessionReducer);
+throw new Error("Module build failed (from ./node_modules/babel-loader/lib/index.js):\nSyntaxError: /home/eric/Desktop/EventSwipe/frontend/reducers/session_reducer.js: Unexpected token (10:1)\n\n\u001b[0m \u001b[90m  8 | \u001b[39m    \u001b[36mswitch\u001b[39m(action\u001b[33m.\u001b[39mtype){\u001b[0m\n\u001b[0m \u001b[90m  9 | \u001b[39m        \u001b[36mcase\u001b[39m \u001b[33mRECEIVE_CURRENT_USER\u001b[39m\u001b[33m:\u001b[39m\u001b[0m\n\u001b[0m\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 10 | \u001b[39m\u001b[33m<<\u001b[39m\u001b[33m<<\u001b[39m\u001b[33m<<\u001b[39m\u001b[33m<\u001b[39m \u001b[33mHEAD\u001b[39m\u001b[0m\n\u001b[0m \u001b[90m    | \u001b[39m \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\u001b[0m\n\u001b[0m \u001b[90m 11 | \u001b[39m            \u001b[36mreturn\u001b[39m \u001b[33mObject\u001b[39m\u001b[33m.\u001b[39massign({}\u001b[33m,\u001b[39m state\u001b[33m,\u001b[39m { id\u001b[33m:\u001b[39m action\u001b[33m.\u001b[39mcurrentUser\u001b[33m.\u001b[39mid })\u001b[33m;\u001b[39m\u001b[0m\n\u001b[0m \u001b[90m 12 | \u001b[39m\u001b[33m===\u001b[39m\u001b[33m===\u001b[39m\u001b[33m=\u001b[39m\u001b[0m\n\u001b[0m \u001b[90m 13 | \u001b[39m            \u001b[36mreturn\u001b[39m \u001b[33mObject\u001b[39m\u001b[33m.\u001b[39massign({}\u001b[33m,\u001b[39m state\u001b[33m,\u001b[39m { id\u001b[33m:\u001b[39m action\u001b[33m.\u001b[39muser\u001b[33m.\u001b[39mid })\u001b[33m;\u001b[39m\u001b[0m\n    at Object._raise (/home/eric/Desktop/EventSwipe/node_modules/@babel/parser/lib/index.js:746:17)\n    at Object.raiseWithData (/home/eric/Desktop/EventSwipe/node_modules/@babel/parser/lib/index.js:739:17)\n    at Object.raise (/home/eric/Desktop/EventSwipe/node_modules/@babel/parser/lib/index.js:733:17)\n    at Object.unexpected (/home/eric/Desktop/EventSwipe/node_modules/@babel/parser/lib/index.js:8807:16)\n    at Object.jsxParseIdentifier (/home/eric/Desktop/EventSwipe/node_modules/@babel/parser/lib/index.js:4412:12)\n    at Object.jsxParseNamespacedName (/home/eric/Desktop/EventSwipe/node_modules/@babel/parser/lib/index.js:4422:23)\n    at Object.jsxParseElementName (/home/eric/Desktop/EventSwipe/node_modules/@babel/parser/lib/index.js:4433:21)\n    at Object.jsxParseOpeningElementAt (/home/eric/Desktop/EventSwipe/node_modules/@babel/parser/lib/index.js:4519:22)\n    at Object.jsxParseElementAt (/home/eric/Desktop/EventSwipe/node_modules/@babel/parser/lib/index.js:4552:33)\n    at Object.jsxParseElement (/home/eric/Desktop/EventSwipe/node_modules/@babel/parser/lib/index.js:4626:17)\n    at Object.parseExprAtom (/home/eric/Desktop/EventSwipe/node_modules/@babel/parser/lib/index.js:4633:19)\n    at Object.parseExprSubscripts (/home/eric/Desktop/EventSwipe/node_modules/@babel/parser/lib/index.js:9656:23)\n    at Object.parseMaybeUnary (/home/eric/Desktop/EventSwipe/node_modules/@babel/parser/lib/index.js:9636:21)\n    at Object.parseExprOps (/home/eric/Desktop/EventSwipe/node_modules/@babel/parser/lib/index.js:9506:23)\n    at Object.parseMaybeConditional (/home/eric/Desktop/EventSwipe/node_modules/@babel/parser/lib/index.js:9479:23)\n    at Object.parseMaybeAssign (/home/eric/Desktop/EventSwipe/node_modules/@babel/parser/lib/index.js:9434:21)\n    at Object.parseExpression (/home/eric/Desktop/EventSwipe/node_modules/@babel/parser/lib/index.js:9386:23)\n    at Object.parseStatementContent (/home/eric/Desktop/EventSwipe/node_modules/@babel/parser/lib/index.js:11285:23)\n    at Object.parseStatement (/home/eric/Desktop/EventSwipe/node_modules/@babel/parser/lib/index.js:11156:17)\n    at Object.parseSwitchStatement (/home/eric/Desktop/EventSwipe/node_modules/@babel/parser/lib/index.js:11561:36)\n    at Object.parseStatementContent (/home/eric/Desktop/EventSwipe/node_modules/@babel/parser/lib/index.js:11207:21)\n    at Object.parseStatement (/home/eric/Desktop/EventSwipe/node_modules/@babel/parser/lib/index.js:11156:17)\n    at Object.parseBlockOrModuleBlockBody (/home/eric/Desktop/EventSwipe/node_modules/@babel/parser/lib/index.js:11731:25)\n    at Object.parseBlockBody (/home/eric/Desktop/EventSwipe/node_modules/@babel/parser/lib/index.js:11717:10)\n    at Object.parseBlock (/home/eric/Desktop/EventSwipe/node_modules/@babel/parser/lib/index.js:11701:10)\n    at Object.parseFunctionBody (/home/eric/Desktop/EventSwipe/node_modules/@babel/parser/lib/index.js:10708:24)\n    at Object.parseArrowExpression (/home/eric/Desktop/EventSwipe/node_modules/@babel/parser/lib/index.js:10677:10)\n    at Object.parseParenAndDistinguishExpression (/home/eric/Desktop/EventSwipe/node_modules/@babel/parser/lib/index.js:10295:12)\n    at Object.parseExprAtom (/home/eric/Desktop/EventSwipe/node_modules/@babel/parser/lib/index.js:10007:21)\n    at Object.parseExprAtom (/home/eric/Desktop/EventSwipe/node_modules/@babel/parser/lib/index.js:4638:20)");
 
 /***/ }),
 
