@@ -1,11 +1,14 @@
 .category-nav{
     display: flex;
+    /* border: 1px solid black; */
+    margin-left: 120px;
     /* border: 1px solid white; */
     padding-left: 20px;
 }
 
 .c-nav-item{
     display: flex;
+    flex-direction: row;
     text-align: center;
     padding: 10px 20px;
     color: rgb(17, 51, 119);

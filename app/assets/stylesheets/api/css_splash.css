@@ -1,13 +1,23 @@
 .splash-img{
-    height: 600px;
-    width: 1530px;
+    display: flex;
+    justify-content: flex-end;
+    /* flex-wrap: wrap; */
+    /* border: 1px solid black; */
+    height: 400px;
+    width: 700px;
+    margin-right: 120px;
+}
+
+.image-container{
+    display: flex;
+    justify-content: flex-end;
 }
 
 .event-banner{
     display: flex;
     font-size: 26px;
     font-weight: bold;
-    padding: 20px 40px;
+    padding: 20px 160px;
     font-family: Arial, Helvetica, cursive;
 }
 
@@ -15,4 +25,42 @@
     color: purple;
     padding-left: 8px;
     font-family: Arial, Helvetica, cursive;
+}
+
+.splash-welcome{
+    display: flex;
+    justify-content: space-between;
+    margin: auto;
+}
+
+.welcome-message{
+    font-size: 36px;
+    margin-left: 90px;
+    font-family: Arial, Helvetica, cursive;
+    color: red;
+}
+
+.message-container{
+    margin: 70px;
+}
+
+.event-word{
+    color: purple
+}
+
+.browse-btn{
+    display: flex;
+    margin-top: 50px;
+    margin-left: 150px;
+    /* width: 300px; */
+    height: 60px;
+    border-radius: 50px;
+    background-color: red;
+    color: white;
+    font-size: 26px;
+    border: none;
+}
+
+.browse-btn:hover{
+    cursor: pointer;
 }

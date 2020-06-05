@@ -1,10 +1,10 @@
 .promo{
     /* padding-left: 100px; */
     /* display: flex; */
-    
-    border: 1px solid black;
+    margin: auto;
+    /* border: 1px solid black; */
     height: 500px;
-    width: 900px;
+    width: 1200px;
 }
 
 .promo-header{
@@ -12,5 +12,8 @@
     color: rgb(31, 19, 60);
     font-weight: bold;
     font-family: Arial, Helvetica, cursive;
-    padding-left: 40px;
+}
+
+.promo-text{
+    color: #797B8B;
 }
