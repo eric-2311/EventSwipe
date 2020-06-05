@@ -1,0 +1,39 @@
+.sign-up-form-container{
+    display: flex;
+    padding: 50px;
+    width: 700px;
+    margin: auto;
+    /* border: 1px solid black; */
+    justify-content: center;
+}
+
+.sign-up-header{
+    display: flex;
+    justify-content: center;
+}
+
+.sign-up-email{
+    display: flex;
+    justify-content: center;
+    padding: 10px;
+}
+
+.sign-up-password{
+    display: flex;
+    justify-content: center;
+    padding: 10px;
+}
+
+.sign-up-btn{
+    color: white;
+    background-color: red;
+    font-size: 16px;
+    width: 250px;
+    height: 40px;
+    /* padding: 50px; */
+}
+
+.sign-up-name{
+    display: flex;
+    justify-content: center;
+}

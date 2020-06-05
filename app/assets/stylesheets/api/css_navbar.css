@@ -24,5 +24,38 @@
     height: 30px;
 }
 
+<<<<<<< HEAD
 
+=======
+.menu-dropdown{
+    display: none;
+    position: absolute;
+    right: 140px;
+}
+
+.menu-btn:hover {
+    cursor: pointer;
+}
+
+.menu-btn:hover .menu-dropdown{
+    display: block;
+    width: 100px;
+    /* background-color: white; */
+    z-index: 999;
+    list-style: block;
+    /* width: 1000px; */
+}
+
+.menu-item{
+    padding: 5px;
+    width: 400px;
+    border: 1px solid black;
+    background-color: white;
+    /* left: 30px; */
+}
+
+.menu-item:hover{
+    cursor: pointer;
+}
+>>>>>>> auth
 

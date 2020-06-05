@@ -6,15 +6,30 @@ class Greeting extends React.Component {
         super(props)
     }
 
+    dropdown(){
+        // let menu = document.getElementsByClassName('menu-dropdown');
+        // // ;
+        // if (menu.display === "none"){
+        //     menu.display = "block" 
+        // } else {
+        //     menu.display = "none"
+        // }
+    }
+
     render(){
+        // ;
         if (this.props.currentUser){
             return (
                 <div className="nav-right">
                     <div className="menu-btn">
                         <img src={window.profpicURL} className="profile-pic"/>
-                    </div>
-                    <div className="menu-dropdown">
-                        <button onClick={this.props.logout}>Logout</button>
+                        <ul className="menu-dropdown">
+                            <li className="menu-item"><button onClick={this.props.logout}>Logout</button></li>
+                            <li className="menu-item">List Item</li>
+                            <li className="menu-item">List Item</li>
+                            <li className="menu-item">List Item</li>
+                            <li className="menu-item">List Item</li>
+                        </ul>
                     </div>
                 </div>
         )} else {

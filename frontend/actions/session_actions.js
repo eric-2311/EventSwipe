@@ -3,7 +3,12 @@ import * as SessionApiUtils from '../util/session_api_util';
 export const RECEIVE_CURRENT_USER = 'RECEIVE_CURRENT_USER';
 export const RECEIVE_LOGIN = 'RECEIVE_LOGIN';
 export const LOGOUT_CURRENT_USER = 'LOGOUT_CURRENT_USER';
+<<<<<<< HEAD
 // export const SIGN_UP_USER = 'SIGN_UP_USER';
+=======
+export const SIGN_UP_USER = 'SIGN_UP_USER';
+export const RECEIVE_EMAIL = 'RECEIVE_EMAIL';
+>>>>>>> auth
 export const RECEIVE_SESSION_ERRORS = 'RECEIVE_SESSION_ERRORS';
 
 const receiveCurrentUser = currentUser => ({
@@ -12,7 +17,7 @@ const receiveCurrentUser = currentUser => ({
 })
 
 export const login = user => dispatch => {
-    // debugger;
+    // ;
     return (
     SessionApiUtils.login(user).then(user => (
         dispatch(receiveCurrentUser(user))), err => (
@@ -48,3 +53,15 @@ export const recieveErrors = errors => ({
     errors
 })
 
+const getEmail = email => {
+    return ({type: RECEIVE_EMAIL,
+    email})
+}
+
+export const validateEmail = email => dispatch => {
+    
+    return (SessionApiUtils.getEmail(email)
+        .then(email => {
+            dispatch(getEmail(email))
+        }))
+}
