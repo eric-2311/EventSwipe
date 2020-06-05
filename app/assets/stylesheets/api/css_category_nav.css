@@ -7,7 +7,7 @@
 .c-nav-item{
     display: flex;
     text-align: center;
-    padding: 10px 20px 0px;
+    padding: 10px 20px;
     color: #797B8B;
     border: 2px solid white;
 }
