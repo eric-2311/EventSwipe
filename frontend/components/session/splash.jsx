@@ -1,6 +1,7 @@
 import React from 'react';
 import GreetingContainer from '../greeting/Greeting_container';
 import CategoryNav from '../category/Category_nav';
+import Promos from './promos';
 
 class Splash extends React.Component {
     render(){
@@ -14,6 +15,7 @@ class Splash extends React.Component {
                 <br/>
                 <br/>
                 <br/>
+                <Promos />
             </div>
         )
     }

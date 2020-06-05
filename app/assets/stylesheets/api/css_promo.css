@@ -1,0 +1,12 @@
+.promo{
+    border: 1px solid black;
+    height: 500px;
+}
+
+.promo-header{
+    font-size: 22px;
+    color: rgb(31, 19, 60);
+    font-weight: bold;
+    font-family: Arial, Helvetica, cursive;
+    padding-left: 40px;
+}

@@ -6,4 +6,5 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
+User.destroy_all
 demo_user = User.create!(email: "demo@mail.com", password: "demopassword", first_name: "Demo", last_name: "User")

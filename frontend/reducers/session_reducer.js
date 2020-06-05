@@ -12,7 +12,7 @@ const sessionReducer = (state = _nullUser, action) => {
             return Object.assign({}, state, { id: action.user.id });
         case RECEIVE_EMAIL:
             const newState = Object.assign({}, state);
-            newState['loginEmail'] = action.email["email"];
+            // newState['loginEmail'] = action.email["email"];
             return newState
         case LOGOUT_CURRENT_USER:
             return _nullUser;

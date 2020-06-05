@@ -43,12 +43,17 @@
     /* width: 1000px; */
 }
 
+.logout:hover{
+    cursor: pointer;
+}
+
 .menu-item{
     padding: 5px;
     width: 400px;
-    border: 1px solid black;
+    border: 1px solid lightgray;
     background-color: white;
-    /* left: 30px; */
+    list-style: none;
+    display: block;
 }
 
 .menu-item:hover{

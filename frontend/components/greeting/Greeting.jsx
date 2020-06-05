@@ -24,7 +24,7 @@ class Greeting extends React.Component {
                     <div className="menu-btn">
                         <img src={window.profpicURL} className="profile-pic"/>
                         <ul className="menu-dropdown">
-                            <li className="menu-item"><button onClick={this.props.logout}>Logout</button></li>
+                            <li className="menu-item"><button className="logout" onClick={this.props.logout}>Logout</button></li>
                             <li className="menu-item">List Item</li>
                             <li className="menu-item">List Item</li>
                             <li className="menu-item">List Item</li>
