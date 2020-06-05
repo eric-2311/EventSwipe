@@ -7,6 +7,7 @@ import Root from './components/root';
 document.addEventListener('DOMContentLoaded', () => {
     const root = document.getElementById('root');
     // const store = configureStore();
+
     let store;
     if (window.currentUser) {
         const preloadedState = {
@@ -20,15 +21,12 @@ document.addEventListener('DOMContentLoaded', () => {
   } else {
     store = configureStore();
   }
+
     // Testing
     // window.signup = signup;
     // window.login = login;
     // window.logout = logout;
-<<<<<<< HEAD
-    // window.getState = store.getState;
-=======
     window.getState = store.getState;
->>>>>>> auth
     // window.dispatch = store.dispatch;
 
     ReactDOM.render(<Root store={store} />, root);

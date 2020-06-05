@@ -1,14 +1,9 @@
 import * as SessionApiUtils from '../util/session_api_util';
 
 export const RECEIVE_CURRENT_USER = 'RECEIVE_CURRENT_USER';
-export const RECEIVE_LOGIN = 'RECEIVE_LOGIN';
 export const LOGOUT_CURRENT_USER = 'LOGOUT_CURRENT_USER';
-<<<<<<< HEAD
-// export const SIGN_UP_USER = 'SIGN_UP_USER';
-=======
 export const SIGN_UP_USER = 'SIGN_UP_USER';
 export const RECEIVE_EMAIL = 'RECEIVE_EMAIL';
->>>>>>> auth
 export const RECEIVE_SESSION_ERRORS = 'RECEIVE_SESSION_ERRORS';
 
 const receiveCurrentUser = currentUser => ({

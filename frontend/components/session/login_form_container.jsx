@@ -1,10 +1,6 @@
 import { connect } from 'react-redux';
-<<<<<<< HEAD
-import { login, recieveErrors } from '../../actions/session_actions';
-=======
 import { Link } from 'react-router-dom';
 import { login, recieveErrors, validateEmail } from '../../actions/session_actions';
->>>>>>> auth
 import LoginForm from './login_form';
 
 const mSTP = state => {

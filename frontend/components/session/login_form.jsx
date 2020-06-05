@@ -17,6 +17,7 @@ class LoginForm extends React.Component {
   }
 
   update(field) {
+    // ;
     return e => this.setState( {[field]: e.currentTarget.value });
   }
 
@@ -87,8 +88,6 @@ class LoginForm extends React.Component {
     // }
 
   render() {
-    if (this.props.email){
-        return <Redirect to="/" />
     if (this.props.renderPass){
       return <Redirect to="/" />
     }
