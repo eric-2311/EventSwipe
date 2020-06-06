@@ -2,7 +2,7 @@
     display: flex;
     justify-content: flex-end;
     /* flex-wrap: wrap; */
-    /* border: 1px solid black; */
+    border: 1px solid black;
     height: 400px;
     width: 700px;
     margin-right: 120px;
