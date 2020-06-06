@@ -3,12 +3,13 @@ import { Redirect } from 'react-router-dom';
 
 class LoginForm extends React.Component {
   constructor(props) {
+    debugger
     super(props);
     this.state = {
-      // currentStep: 1,
       email: '',
       password: '',
-      renderPass: false
+      renderPass: false,
+      exists: this.props.exists
     };
 
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -22,11 +23,11 @@ class LoginForm extends React.Component {
   }
 
   handleSubmit(e) {
-    // debugger;
+    debugger;
     e.preventDefault();
     const user = Object.assign({}, this.state);
     if (this.state.renderPass){
-      // debugger;
+      debugger;
       this.props.processForm(user)
     } else{
       this.props.receiveEmail(this.state.email)

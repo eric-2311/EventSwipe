@@ -534,12 +534,13 @@ var LoginForm = /*#__PURE__*/function (_React$Component) {
 
     _classCallCheck(this, LoginForm);
 
+    debugger;
     _this = _super.call(this, props);
     _this.state = {
-      // currentStep: 1,
       email: '',
       password: '',
-      renderPass: false
+      renderPass: false,
+      exists: _this.props.exists
     };
     _this.handleSubmit = _this.handleSubmit.bind(_assertThisInitialized(_this));
     _this.renderPassInput = _this.renderPassInput.bind(_assertThisInitialized(_this));
@@ -562,12 +563,12 @@ var LoginForm = /*#__PURE__*/function (_React$Component) {
     value: function handleSubmit(e) {
       var _this3 = this;
 
-      // debugger;
+      debugger;
       e.preventDefault();
       var user = Object.assign({}, this.state);
 
       if (this.state.renderPass) {
-        // debugger;
+        debugger;
         this.props.processForm(user);
       } else {
         this.props.receiveEmail(this.state.email).then(function () {
@@ -691,15 +692,14 @@ var LoginForm = /*#__PURE__*/function (_React$Component) {
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
-/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
-/* harmony import */ var _actions_session_actions__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../actions/session_actions */ "./frontend/actions/session_actions.js");
-/* harmony import */ var _login_form__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./login_form */ "./frontend/components/session/login_form.jsx");
-
+/* harmony import */ var _actions_session_actions__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../actions/session_actions */ "./frontend/actions/session_actions.js");
+/* harmony import */ var _login_form__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./login_form */ "./frontend/components/session/login_form.jsx");
 
 
 
 
 var mSTP = function mSTP(state) {
+  debugger;
   return {
     email: state.session.email,
     errors: state.errors.session,
@@ -708,21 +708,20 @@ var mSTP = function mSTP(state) {
 };
 
 var mDTP = function mDTP(dispatch) {
-  ;
   return {
     processForm: function processForm(user) {
-      return dispatch(Object(_actions_session_actions__WEBPACK_IMPORTED_MODULE_2__["login"])(user));
+      return dispatch(Object(_actions_session_actions__WEBPACK_IMPORTED_MODULE_1__["login"])(user));
     },
     receiveEmail: function receiveEmail(email) {
-      return dispatch(Object(_actions_session_actions__WEBPACK_IMPORTED_MODULE_2__["validateEmail"])(email));
+      return dispatch(Object(_actions_session_actions__WEBPACK_IMPORTED_MODULE_1__["validateEmail"])(email));
     },
     removeErrors: function removeErrors() {
-      return dispatch(Object(_actions_session_actions__WEBPACK_IMPORTED_MODULE_2__["recieveErrors"])());
+      return dispatch(Object(_actions_session_actions__WEBPACK_IMPORTED_MODULE_1__["recieveErrors"])());
     }
   };
 };
 
-/* harmony default export */ __webpack_exports__["default"] = (Object(react_redux__WEBPACK_IMPORTED_MODULE_0__["connect"])(mSTP, mDTP)(_login_form__WEBPACK_IMPORTED_MODULE_3__["default"]));
+/* harmony default export */ __webpack_exports__["default"] = (Object(react_redux__WEBPACK_IMPORTED_MODULE_0__["connect"])(mSTP, mDTP)(_login_form__WEBPACK_IMPORTED_MODULE_2__["default"]));
 
 /***/ }),
 
@@ -1289,8 +1288,8 @@ var sessionReducer = function sessionReducer() {
       });
 
     case _actions_session_actions__WEBPACK_IMPORTED_MODULE_0__["RECEIVE_EMAIL"]:
-      var newState = Object.assign({}, state); // newState['loginEmail'] = action.email["email"];
-
+      var newState = Object.assign({}, state);
+      newState['exists'] = action.email["exists"];
       return newState;
 
     case _actions_session_actions__WEBPACK_IMPORTED_MODULE_0__["LOGOUT_CURRENT_USER"]:

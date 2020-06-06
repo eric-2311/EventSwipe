@@ -37,7 +37,9 @@
     font-size: 36px;
     margin-left: 90px;
     font-family: Arial, Helvetica, cursive;
+    /* font-family: 'Anton', sans-serif; */
     color: red;
+    font-weight: bold;
 }
 
 .message-container{
