@@ -574,6 +574,10 @@ var LoginForm = /*#__PURE__*/function (_React$Component) {
           return _this3.setState({
             renderPass: true
           });
+        }, function () {
+          return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Redirect"], {
+            to: "/signup"
+          });
         });
       }
     }
@@ -777,7 +781,7 @@ var Promos = /*#__PURE__*/function (_React$Component) {
         className: "promo-content"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", {
         className: "promo-header"
-      }, "Our favorite collections"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
+      }, "Our favorites collection"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
         className: "promo-text"
       }, "Browse through some of the best collections of Online Events", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), "hand picked by people who know he area best.")));
     }

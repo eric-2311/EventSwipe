@@ -30,7 +30,7 @@ class LoginForm extends React.Component {
       this.props.processForm(user)
     } else{
       this.props.receiveEmail(this.state.email)
-          .then(() => this.setState({ renderPass: true }))
+          .then(() => this.setState({ renderPass: true }), () => <Redirect to="/signup" />)
     }
   }
 
