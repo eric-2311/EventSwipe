@@ -553,7 +553,6 @@ var LoginForm = /*#__PURE__*/function (_React$Component) {
     value: function update(field) {
       var _this2 = this;
 
-      // ;
       return function (e) {
         return _this2.setState(_defineProperty({}, field, e.currentTarget.value));
       };
