@@ -21,17 +21,31 @@ class LoginForm extends React.Component {
     return e => this.setState( {[field]: e.currentTarget.value });
   }
 
+  validEmail(email){
+    if (email.split('@').length === 2 && email.split('@')[1].includes(".") ){
+      return true;
+    }
+    false;
+  }
+
   handleSubmit(e) {
     debugger;
+    // const emailState = this.props.receiveEmail(this.state.email);
     e.preventDefault();
     const user = Object.assign({}, this.state);
-    if (this.state.renderPass){
+    if (!this.props.exists){
       debugger;
-      this.props.processForm(user)
+      return <Redirect to="/signup" />
+    } else if (this.state.renderPass){
+      debugger
+        this.props.processForm(user)
     } else{
       this.props.receiveEmail(this.state.email)
-          .then(() => this.setState({ renderPass: true }))
+        .then(() => this.setState({ renderPass: true }))
     }
+      // this.props.receiveEmail(this.state.email)
+      //     .then(() => this.setState({ renderPass: true }))
+      
   }
 
   renderErrors() {
@@ -90,7 +104,9 @@ class LoginForm extends React.Component {
   render() {
     if (this.props.renderPass){
       return <Redirect to="/" />
-    }
+    // } else if (!this.props.exists){
+    //     return <Redirect to="signup" />
+    // }
 
     // if (this.props.exists){
     //   <Redirect to="/" />

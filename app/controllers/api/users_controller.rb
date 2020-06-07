@@ -6,7 +6,7 @@ class Api::UsersController < ApplicationController
         if @user
             render json: @user
         else
-            render json: ["ERROR"]
+            render json: "null"
         end
     end
 
