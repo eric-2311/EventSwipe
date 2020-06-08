@@ -21,6 +21,10 @@ class LoginForm extends React.Component {
     this.promiseHandler = this.promiseHandler.bind(this);
   }
 
+  componentWillUnmount(){
+    this.props.removeErrors()
+  }
+
   update(field) {
     return e => this.setState( { [field]: e.currentTarget.value });
   }
@@ -84,7 +88,14 @@ class LoginForm extends React.Component {
 
   renderEmailInput(){
     if (this.state.renderPass === true){
-      return <div>Welcome {this.state.email}</div> //input and label
+      return (
+      <div>
+        <div>Welcome {this.state.email}
+        <br/>
+        </div>
+      </div>
+      
+      ) //input and label
     } else{
       return (
         <label>
