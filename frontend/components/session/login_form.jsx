@@ -33,41 +33,20 @@ class LoginForm extends React.Component {
   }
 
   handleSubmit(e) {
-    debugger;
-    // const emailState = this.props.receiveEmail(this.state.email);
     e.preventDefault();
     const user = Object.assign({}, this.state);
-    // if (this.props.exists){
-    //   debugger;
-    //   return <Redirect to="/signup" />
-    // } else 
-    // const email = this.props.email;
-    // this.props.receiveEmail(this.state.email);
     if (this.state.renderPass){
-      debugger
-        // this.setState( { renderPass: true } )
         return this.props.processForm(user)
     } else{
       this.props.receiveEmail(this.state.email)
         .then(() => { 
-          debugger;
           return this.promiseHandler()
         })
       }
-        // debugger;
-        //   if (this.props.flag === null){
-        //     return this.props.history.push("/signup")
-        //   }
-          // () => 
-    
-      // this.props.receiveEmail(this.state.email)
-      //     .then(() => this.setState({ renderPass: true }))
-  
   }
 
   promiseHandler(){
     if (this.props.flag){
-      debugger;
       return this.setState({renderPass: true})
     } else{
       return this.props.history.push("/signup")
@@ -119,35 +98,14 @@ class LoginForm extends React.Component {
     }
   }
 
-  chooseForm() {
-      // if // props email returns ...
-      if (this.props.exists){
-          return 
-      } else{
-          return <Redirect to="/signup"/>
-      }
-      // bind this!
-      // null? return
-      // else => return something
-      // custom email view for backend
-    }
-
   render() {
     if (this.props.renderPass){
       return <Redirect to="/" />
     } 
 
-    // if (this.props.exists){
-    //   return 
-    // } else if (this.props.renderPass){
-    //   return <Redirect to="/" />
-    // } else{
-    //   return <Redirect to="signup" />
-    // }
 
     return (
       <div className="login-form-container">
-        {/* {this.chooseForm()} */}
         <form onSubmit={this.handleSubmit} className="login-form-box">
           <p className="login-logo">e</p>
           <br/>
@@ -157,25 +115,8 @@ class LoginForm extends React.Component {
           {this.renderErrors()}
           <div className="login-form">
             <br/>
-            {/* <label>
-              <input type="text"
-                value={this.state.email}
-                placeholder="email"
-                onChange={this.update('email')}
-                className="login-input"/>
-            </label> */}
             {this.renderEmailInput()}
             {this.renderPassInput()}
-            {/* <br/>
-            <br/>
-            <label>
-              <input type="password"
-                value={this.state.password}
-                placeholder="password"
-                onChange={this.update('password')}
-                className="login-input"
-              />
-            </label> */}
             <br/>
             <br/>
             <input className="session-submit" type="submit" value="Get Started" />

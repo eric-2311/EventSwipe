@@ -663,39 +663,21 @@ var LoginForm = /*#__PURE__*/function (_React$Component) {
     value: function handleSubmit(e) {
       var _this3 = this;
 
-      debugger; // const emailState = this.props.receiveEmail(this.state.email);
-
       e.preventDefault();
-      var user = Object.assign({}, this.state); // if (this.props.exists){
-      //   debugger;
-      //   return <Redirect to="/signup" />
-      // } else 
-      // const email = this.props.email;
-      // this.props.receiveEmail(this.state.email);
+      var user = Object.assign({}, this.state);
 
       if (this.state.renderPass) {
-        debugger; // this.setState( { renderPass: true } )
-
         return this.props.processForm(user);
       } else {
         this.props.receiveEmail(this.state.email).then(function () {
-          debugger;
           return _this3.promiseHandler();
         });
-      } // debugger;
-      //   if (this.props.flag === null){
-      //     return this.props.history.push("/signup")
-      //   }
-      // () => 
-      // this.props.receiveEmail(this.state.email)
-      //     .then(() => this.setState({ renderPass: true }))
-
+      }
     }
   }, {
     key: "promiseHandler",
     value: function promiseHandler() {
       if (this.props.flag) {
-        debugger;
         return this.setState({
           renderPass: true
         });
@@ -743,22 +725,6 @@ var LoginForm = /*#__PURE__*/function (_React$Component) {
       }
     }
   }, {
-    key: "chooseForm",
-    value: function chooseForm() {
-      // if // props email returns ...
-      if (this.props.exists) {
-        return;
-      } else {
-        return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Redirect"], {
-          to: "/signup"
-        });
-      } // bind this!
-      // null? return
-      // else => return something
-      // custom email view for backend
-
-    }
-  }, {
     key: "render",
     value: function render() {
       var _this4 = this;
@@ -767,14 +733,7 @@ var LoginForm = /*#__PURE__*/function (_React$Component) {
         return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Redirect"], {
           to: "/"
         });
-      } // if (this.props.exists){
-      //   return 
-      // } else if (this.props.renderPass){
-      //   return <Redirect to="/" />
-      // } else{
-      //   return <Redirect to="signup" />
-      // }
-
+      }
 
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "login-form-container"
