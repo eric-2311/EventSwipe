@@ -1,5 +1,6 @@
 import React from 'react';
 import { Redirect } from 'react-router-dom';
+import { withRouter } from 'react-router'; 
 
 class LoginForm extends React.Component {
   constructor(props) {
@@ -15,10 +16,13 @@ class LoginForm extends React.Component {
     this.handleSubmit = this.handleSubmit.bind(this);
     this.renderPassInput = this.renderPassInput.bind(this);
     this.renderEmailInput = this.renderEmailInput.bind(this);
+    // this.chooseFrom = this.chooseForm.bind(this)
+    this.renderErrors = this.renderErrors.bind(this)
+    this.promiseHandler = this.promiseHandler.bind(this);
   }
 
   update(field) {
-    return e => this.setState( {[field]: e.currentTarget.value });
+    return e => this.setState( { [field]: e.currentTarget.value });
   }
 
   validEmail(email){
@@ -33,19 +37,41 @@ class LoginForm extends React.Component {
     // const emailState = this.props.receiveEmail(this.state.email);
     e.preventDefault();
     const user = Object.assign({}, this.state);
-    if (!this.props.exists){
-      debugger;
-      return <Redirect to="/signup" />
-    } else if (this.state.renderPass){
+    // if (this.props.exists){
+    //   debugger;
+    //   return <Redirect to="/signup" />
+    // } else 
+    // const email = this.props.email;
+    // this.props.receiveEmail(this.state.email);
+    if (this.state.renderPass){
       debugger
-        this.props.processForm(user)
+        // this.setState( { renderPass: true } )
+        return this.props.processForm(user)
     } else{
       this.props.receiveEmail(this.state.email)
-        .then(() => this.setState({ renderPass: true }))
-    }
+        .then(() => { 
+          debugger;
+          return this.promiseHandler()
+        })
+      }
+        // debugger;
+        //   if (this.props.flag === null){
+        //     return this.props.history.push("/signup")
+        //   }
+          // () => 
+    
       // this.props.receiveEmail(this.state.email)
       //     .then(() => this.setState({ renderPass: true }))
-      
+  
+  }
+
+  promiseHandler(){
+    if (this.props.flag){
+      debugger;
+      return this.setState({renderPass: true})
+    } else{
+      return this.props.history.push("/signup")
+    }
   }
 
   renderErrors() {
@@ -93,28 +119,35 @@ class LoginForm extends React.Component {
     }
   }
 
-  // chooseform() {
-    //   // if // props email returns ...
-    //   // bind this!
-    //   // null? return
-    //   // else => return something
-    //   // custom email view for backend
-    // }
+  chooseForm() {
+      // if // props email returns ...
+      if (this.props.exists){
+          return 
+      } else{
+          return <Redirect to="/signup"/>
+      }
+      // bind this!
+      // null? return
+      // else => return something
+      // custom email view for backend
+    }
 
   render() {
     if (this.props.renderPass){
       return <Redirect to="/" />
-    // } else if (!this.props.exists){
-    //     return <Redirect to="signup" />
-    // }
+    } 
 
     // if (this.props.exists){
-    //   <Redirect to="/" />
+    //   return 
+    // } else if (this.props.renderPass){
+    //   return <Redirect to="/" />
+    // } else{
+    //   return <Redirect to="signup" />
     // }
 
     return (
       <div className="login-form-container">
-        
+        {/* {this.chooseForm()} */}
         <form onSubmit={this.handleSubmit} className="login-form-box">
           <p className="login-logo">e</p>
           <br/>
@@ -162,5 +195,5 @@ class LoginForm extends React.Component {
   }
 }
 
-export default LoginForm;
+export default withRouter(LoginForm);
 
