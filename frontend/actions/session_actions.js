@@ -29,7 +29,7 @@ const signUpUser = user => ({
 export const signup = user => dispatch => (
     SessionApiUtils.signup(user)
         .then(user => dispatch(signUpUser(user)), err => {
-            debugger
+            // debugger
             return dispatch(receiveErrors(err.responseJSON))
         })
 )

@@ -146,7 +146,7 @@ var signup = function signup(user) {
     return _util_session_api_util__WEBPACK_IMPORTED_MODULE_0__["signup"](user).then(function (user) {
       return dispatch(signUpUser(user));
     }, function (err) {
-      debugger;
+      // debugger
       return dispatch(receiveErrors(err.responseJSON));
     });
   };
