@@ -6,17 +6,19 @@ class Api::UsersController < ApplicationController
         if @user
             render json: @user
         else
-            render json: ["ERROR"]
+            render json: "null"
         end
     end
 
     def create
+        # debugger
         @user = User.new(user_params)
-
-        if @user.save!
+        
+        if @user.save
             login(@user)
             render json: @user
         else
+            # debugger
             render json: @user.errors.full_messages
         end
     end

@@ -25,12 +25,12 @@ class SignUpForm extends React.Component {
         const user = Object.assign({}, this.state)
         this.props.processForm(user)
             // .then(this.props.login(this.state))
-        this.setState({
-            email: '',
-            first_name: '',
-            last_name: '',
-            password: ''
-        })
+        // this.setState({
+        //     email: '',
+        //     first_name: '',
+        //     last_name: '',
+        //     password: ''
+        // })
             // 
         // <Redirect to="/" />
     }
@@ -41,7 +41,12 @@ class SignUpForm extends React.Component {
         // }
 
         return (
+            <section>
+            <div className="signup-pic-container">
+                    <img src={window.profpicURL} className="signup-pic"/>
+                </div>
             <div className="sign-up-form-container">
+                
                 <form onSubmit={this.handleSubmit}>
                     <h1 className="sign-up-header">Welcome</h1>
                     <label className="sign-up-email">
@@ -58,15 +63,17 @@ class SignUpForm extends React.Component {
                             placeholder="first name"
                             value={this.state.first_name}
                             onChange={this.update('first_name')}
+                            className="sign-up-first"
                             size="9"/>
                         </label>
-                        <label className="sign-up-name">
+                        <label>
                             <input
                             type="text"
                             placeholder="last name"
                             value={this.state.last_name}
                             onChange={this.update('last_name')}
-                            size="9"/>
+                            className="sign-up-last"
+                            size="8"/>
                         </label>
                         </div>
                     <label className="sign-up-password">
@@ -81,6 +88,7 @@ class SignUpForm extends React.Component {
                     <Link to="/login" className="login-link">Log in instead</Link>
                 </form>
             </div>
+            </section>
         )
     }
 }

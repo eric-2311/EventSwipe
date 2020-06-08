@@ -1,9 +1,10 @@
 import React from 'react';
 import { Redirect } from 'react-router-dom';
+import { withRouter } from 'react-router'; 
 
 class LoginForm extends React.Component {
   constructor(props) {
-    debugger
+    // debugger
     super(props);
     this.state = {
       email: '',
@@ -15,22 +16,40 @@ class LoginForm extends React.Component {
     this.handleSubmit = this.handleSubmit.bind(this);
     this.renderPassInput = this.renderPassInput.bind(this);
     this.renderEmailInput = this.renderEmailInput.bind(this);
+    // this.chooseFrom = this.chooseForm.bind(this)
+    this.renderErrors = this.renderErrors.bind(this)
+    this.promiseHandler = this.promiseHandler.bind(this);
   }
 
   update(field) {
-    return e => this.setState( {[field]: e.currentTarget.value });
+    return e => this.setState( { [field]: e.currentTarget.value });
+  }
+
+  validEmail(email){
+    if (email.split('@').length === 2 && email.split('@')[1].includes(".") ){
+      return true;
+    }
+    false;
   }
 
   handleSubmit(e) {
-    debugger;
     e.preventDefault();
     const user = Object.assign({}, this.state);
     if (this.state.renderPass){
-      debugger;
-      this.props.processForm(user)
+        return this.props.processForm(user)
     } else{
       this.props.receiveEmail(this.state.email)
-          .then(() => this.setState({ renderPass: true }), () => <Redirect to="/signup" />)
+        .then(() => { 
+          return this.promiseHandler()
+        })
+      }
+  }
+
+  promiseHandler(){
+    if (this.props.flag){
+      return this.setState({renderPass: true})
+    } else{
+      return this.props.history.push("/signup")
     }
   }
 
@@ -79,26 +98,14 @@ class LoginForm extends React.Component {
     }
   }
 
-  // chooseform() {
-    //   // if // props email returns ...
-    //   // bind this!
-    //   // null? return
-    //   // else => return something
-    //   // custom email view for backend
-    // }
-
   render() {
     if (this.props.renderPass){
       return <Redirect to="/" />
-    }
+    } 
 
-    // if (this.props.exists){
-    //   <Redirect to="/" />
-    // }
 
     return (
       <div className="login-form-container">
-        
         <form onSubmit={this.handleSubmit} className="login-form-box">
           <p className="login-logo">e</p>
           <br/>
@@ -108,25 +115,8 @@ class LoginForm extends React.Component {
           {this.renderErrors()}
           <div className="login-form">
             <br/>
-            {/* <label>
-              <input type="text"
-                value={this.state.email}
-                placeholder="email"
-                onChange={this.update('email')}
-                className="login-input"/>
-            </label> */}
             {this.renderEmailInput()}
             {this.renderPassInput()}
-            {/* <br/>
-            <br/>
-            <label>
-              <input type="password"
-                value={this.state.password}
-                placeholder="password"
-                onChange={this.update('password')}
-                className="login-input"
-              />
-            </label> */}
             <br/>
             <br/>
             <input className="session-submit" type="submit" value="Get Started" />
@@ -146,5 +136,5 @@ class LoginForm extends React.Component {
   }
 }
 
-export default LoginForm;
+export default withRouter(LoginForm);
 

@@ -1,0 +1,29 @@
+.splash-footer{
+    /* border: 1px solid black; */
+    display: flex;
+    position: absolute;
+    height: 55px;
+    background-color: purple;
+    color: white;
+    width: 100%;
+    justify-content: center;
+}
+
+.footer-nav{
+    display: flex;
+    justify-content: center;
+}
+
+.footer-nav-item{
+    list-style: none;
+    padding: 10px;
+    padding-top: 20px;
+}
+
+.footer-nav-item:hover{
+    cursor: pointer;
+}
+
+/* .footer-container{
+    /* flex-shrink: 0;
+} */

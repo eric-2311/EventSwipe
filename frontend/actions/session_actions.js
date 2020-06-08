@@ -27,9 +27,10 @@ const signUpUser = user => ({
 
 export const signup = user => dispatch => (
     SessionApiUtils.signup(user)
-        .then(user => dispatch(signUpUser(user)), err => (
-            dispatch(receiveErrors(err.responseJSON))
-          ))
+        .then(user => dispatch(signUpUser(user)), err => {
+            debugger
+            return dispatch(receiveErrors(err.responseJSON))
+        })
 )
 
 const logoutUser = () => ({
@@ -43,10 +44,11 @@ export const logout = () => dispatch => (
           ))
 )
 
-export const recieveErrors = errors => ({
-    type: RECEIVE_SESSION_ERRORS,
-    errors
-})
+export const receiveErrors = errors => {
+    debugger;
+    return {type: RECEIVE_SESSION_ERRORS,
+    errors}
+}
 
 const getEmail = email => {
     return ({type: RECEIVE_EMAIL,

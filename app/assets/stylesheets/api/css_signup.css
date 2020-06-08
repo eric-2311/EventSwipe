@@ -5,23 +5,27 @@
     margin: auto;
     /* border: 1px solid black; */
     justify-content: center;
+    padding-bottom: 300px;
 }
 
 .sign-up-header{
     display: flex;
     justify-content: center;
+    font-size: 26px;
 }
 
 .sign-up-email{
     display: flex;
+    height: 40px;
     justify-content: center;
-    padding: 10px;
+    padding: 20px;
 }
 
 .sign-up-password{
     display: flex;
+    height: 40px;
     justify-content: center;
-    padding: 10px;
+    padding: 20px;
 }
 
 .sign-up-btn{
@@ -33,7 +37,29 @@
     /* padding: 50px; */
 }
 
+.sign-up-first{
+    /* display: flex; */
+    /* justify-content: center; */
+    height: 40px;
+}
+
+.sign-up-last{
+    /* display: flex; */
+    /* justify-content: center; */
+    height: 40px;
+}
+
 .sign-up-name{
     display: flex;
     justify-content: center;
+}
+
+.signup-pic{
+    height: 60px;
+}
+
+.signup-pic-container{
+    display: flex;
+    justify-content: center;
+    /* border: 1px solid black; */
 }
