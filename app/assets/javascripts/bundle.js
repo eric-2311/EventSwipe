@@ -90,7 +90,7 @@
 /*!*********************************************!*\
   !*** ./frontend/actions/session_actions.js ***!
   \*********************************************/
-/*! exports provided: RECEIVE_CURRENT_USER, LOGOUT_CURRENT_USER, SIGN_UP_USER, RECEIVE_EMAIL, RECEIVE_SESSION_ERRORS, login, signup, logout, receiveErrors, validateEmail */
+/*! exports provided: RECEIVE_CURRENT_USER, LOGOUT_CURRENT_USER, SIGN_UP_USER, RECEIVE_EMAIL, CLEAR_ERRORS, RECEIVE_SESSION_ERRORS, login, signup, logout, receiveErrors, clearErrors, validateEmail */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -99,11 +99,13 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "LOGOUT_CURRENT_USER", function() { return LOGOUT_CURRENT_USER; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "SIGN_UP_USER", function() { return SIGN_UP_USER; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "RECEIVE_EMAIL", function() { return RECEIVE_EMAIL; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "CLEAR_ERRORS", function() { return CLEAR_ERRORS; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "RECEIVE_SESSION_ERRORS", function() { return RECEIVE_SESSION_ERRORS; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "login", function() { return login; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "signup", function() { return signup; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "logout", function() { return logout; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "receiveErrors", function() { return receiveErrors; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "clearErrors", function() { return clearErrors; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "validateEmail", function() { return validateEmail; });
 /* harmony import */ var _util_session_api_util__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../util/session_api_util */ "./frontend/util/session_api_util.js");
 
@@ -111,6 +113,7 @@ var RECEIVE_CURRENT_USER = 'RECEIVE_CURRENT_USER';
 var LOGOUT_CURRENT_USER = 'LOGOUT_CURRENT_USER';
 var SIGN_UP_USER = 'SIGN_UP_USER';
 var RECEIVE_EMAIL = 'RECEIVE_EMAIL';
+var CLEAR_ERRORS = 'CLEAR_ERRORS';
 var RECEIVE_SESSION_ERRORS = 'RECEIVE_SESSION_ERRORS';
 
 var receiveCurrentUser = function receiveCurrentUser(currentUser) {
@@ -165,10 +168,15 @@ var logout = function logout() {
   };
 };
 var receiveErrors = function receiveErrors(errors) {
-  debugger;
+  // debugger;
   return {
     type: RECEIVE_SESSION_ERRORS,
     errors: errors
+  };
+};
+var clearErrors = function clearErrors() {
+  return {
+    type: CLEAR_ERRORS
   };
 };
 
@@ -641,6 +649,11 @@ var LoginForm = /*#__PURE__*/function (_React$Component) {
   }
 
   _createClass(LoginForm, [{
+    key: "componentWillUnmount",
+    value: function componentWillUnmount() {
+      this.props.removeErrors();
+    }
+  }, {
     key: "update",
     value: function update(field) {
       var _this2 = this;
@@ -713,7 +726,7 @@ var LoginForm = /*#__PURE__*/function (_React$Component) {
     key: "renderEmailInput",
     value: function renderEmailInput() {
       if (this.state.renderPass === true) {
-        return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Welcome ", this.state.email); //input and label
+        return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Welcome ", this.state.email, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null))); //input and label
       } else {
         return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
           type: "text",
@@ -808,8 +821,10 @@ var mDTP = function mDTP(dispatch) {
     },
     receiveEmail: function receiveEmail(email) {
       return dispatch(Object(_actions_session_actions__WEBPACK_IMPORTED_MODULE_1__["validateEmail"])(email));
-    } // removeErrors: () => dispatch(receiveErrors()),
-
+    },
+    removeErrors: function removeErrors() {
+      return dispatch(Object(_actions_session_actions__WEBPACK_IMPORTED_MODULE_1__["clearErrors"])());
+    }
   };
 };
 
@@ -934,6 +949,7 @@ var SignUpForm = /*#__PURE__*/function (_React$Component) {
 
     _classCallCheck(this, SignUpForm);
 
+    debugger;
     _this = _super.call(this, props);
     _this.state = {
       email: '',
@@ -941,11 +957,17 @@ var SignUpForm = /*#__PURE__*/function (_React$Component) {
       last_name: '',
       password: ''
     };
+    _this.renderErrors = _this.renderErrors.bind(_assertThisInitialized(_this));
     _this.handleSubmit = _this.handleSubmit.bind(_assertThisInitialized(_this));
     return _this;
   }
 
   _createClass(SignUpForm, [{
+    key: "componentWillUnmount",
+    value: function componentWillUnmount() {
+      this.props.removeErrors();
+    }
+  }, {
     key: "update",
     value: function update(field) {
       var _this2 = this;
@@ -970,6 +992,15 @@ var SignUpForm = /*#__PURE__*/function (_React$Component) {
       // <Redirect to="/" />
     }
   }, {
+    key: "renderErrors",
+    value: function renderErrors() {
+      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", null, this.props.errors.map(function (error, i) {
+        return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
+          key: "error-".concat(i)
+        }, error);
+      }));
+    }
+  }, {
     key: "render",
     value: function render() {
       // if (this.props.login(this.state)){
@@ -981,6 +1012,8 @@ var SignUpForm = /*#__PURE__*/function (_React$Component) {
         src: window.profpicURL,
         className: "signup-pic"
       })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "signup-errors"
+      }, this.renderErrors()), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "sign-up-form-container"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
         onSubmit: this.handleSubmit
@@ -1000,15 +1033,15 @@ var SignUpForm = /*#__PURE__*/function (_React$Component) {
         placeholder: "first name",
         value: this.state.first_name,
         onChange: this.update('first_name'),
-        className: "sign-up-first",
-        size: "9"
+        className: "sign-up-first" // size="9"
+
       })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
         type: "text",
         placeholder: "last name",
         value: this.state.last_name,
         onChange: this.update('last_name'),
-        className: "sign-up-last",
-        size: "8"
+        className: "sign-up-last" // size="8"
+
       }))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
         className: "sign-up-password"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
@@ -1044,21 +1077,16 @@ var SignUpForm = /*#__PURE__*/function (_React$Component) {
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
-/* harmony import */ var _actions_session_actions__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../actions/session_actions */ "./frontend/actions/session_actions.js");
-/* harmony import */ var _sign_up_form__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./sign_up_form */ "./frontend/components/session/sign_up_form.jsx");
+/* harmony import */ var _actions_session_actions__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../actions/session_actions */ "./frontend/actions/session_actions.js");
+/* harmony import */ var _sign_up_form__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./sign_up_form */ "./frontend/components/session/sign_up_form.jsx");
 
 
 
 
-
-
-var mSTP = function mSTP(_ref) {
-  var errors = _ref.errors;
+var mSTP = function mSTP(state) {
+  debugger;
   return {
-    errors: errors.session // formType: 'Sign Up',
+    errors: state.errors.session // formType: 'Sign Up',
     // navLink: <Link to="/login">Already a member? Sign in!</Link>,
 
   };
@@ -1067,16 +1095,18 @@ var mSTP = function mSTP(_ref) {
 var mDTP = function mDTP(dispatch) {
   return {
     processForm: function processForm(user) {
-      return dispatch(Object(_actions_session_actions__WEBPACK_IMPORTED_MODULE_3__["signup"])(user));
+      return dispatch(Object(_actions_session_actions__WEBPACK_IMPORTED_MODULE_1__["signup"])(user));
     },
-    // removeErrors: () => dispatch(recieveErrors()),
+    removeErrors: function removeErrors() {
+      return dispatch(Object(_actions_session_actions__WEBPACK_IMPORTED_MODULE_1__["clearErrors"])());
+    },
     login: function login(user) {
-      return dispatch(Object(_actions_session_actions__WEBPACK_IMPORTED_MODULE_3__["login"])(user));
+      return dispatch(Object(_actions_session_actions__WEBPACK_IMPORTED_MODULE_1__["login"])(user));
     }
   };
 };
 
-/* harmony default export */ __webpack_exports__["default"] = (Object(react_redux__WEBPACK_IMPORTED_MODULE_0__["connect"])(mSTP, mDTP)(_sign_up_form__WEBPACK_IMPORTED_MODULE_4__["default"]));
+/* harmony default export */ __webpack_exports__["default"] = (Object(react_redux__WEBPACK_IMPORTED_MODULE_0__["connect"])(mSTP, mDTP)(_sign_up_form__WEBPACK_IMPORTED_MODULE_2__["default"]));
 
 /***/ }),
 
@@ -1340,6 +1370,9 @@ var sessionErrorsReducer = function sessionErrorsReducer() {
       return action.errors;
 
     case _actions_session_actions__WEBPACK_IMPORTED_MODULE_0__["RECEIVE_CURRENT_USER"]:
+      return [];
+
+    case _actions_session_actions__WEBPACK_IMPORTED_MODULE_0__["CLEAR_ERRORS"]:
       return [];
 
     default:

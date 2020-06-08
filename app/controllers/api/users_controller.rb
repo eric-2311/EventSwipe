@@ -15,11 +15,12 @@ class Api::UsersController < ApplicationController
         @user = User.new(user_params)
         
         if @user.save
+            # debugger
             login(@user)
             render json: @user
         else
             # debugger
-            render json: @user.errors.full_messages
+            render json: @user.errors.full_messages, status: 422
         end
     end
 

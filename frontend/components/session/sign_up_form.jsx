@@ -3,6 +3,7 @@ import { Link, Redirect } from 'react-router-dom';
 
 class SignUpForm extends React.Component {
     constructor(props){
+        debugger
         super(props);
         this.state = {
             email: '',
@@ -10,8 +11,12 @@ class SignUpForm extends React.Component {
             last_name: '',
             password: ''
         }
-
+        this.renderErrors = this.renderErrors.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
+    }
+
+    componentWillUnmount(){
+        this.props.removeErrors()
     }
 
     update(field){
@@ -34,6 +39,18 @@ class SignUpForm extends React.Component {
             // 
         // <Redirect to="/" />
     }
+
+    renderErrors() {
+        return(
+          <ul>
+            {this.props.errors.map((error, i) => (
+              <li key={`error-${i}`}>
+                {error}
+              </li>
+            ))}
+          </ul>
+        );
+      }
     
     render(){
         // if (this.props.login(this.state)){
@@ -45,8 +62,10 @@ class SignUpForm extends React.Component {
             <div className="signup-pic-container">
                     <img src={window.profpicURL} className="signup-pic"/>
                 </div>
+            <div className="signup-errors">
+                {this.renderErrors()}
+            </div>
             <div className="sign-up-form-container">
-                
                 <form onSubmit={this.handleSubmit}>
                     <h1 className="sign-up-header">Welcome</h1>
                     <label className="sign-up-email">
@@ -64,7 +83,8 @@ class SignUpForm extends React.Component {
                             value={this.state.first_name}
                             onChange={this.update('first_name')}
                             className="sign-up-first"
-                            size="9"/>
+                            // size="9"
+                            />
                         </label>
                         <label>
                             <input
@@ -73,7 +93,8 @@ class SignUpForm extends React.Component {
                             value={this.state.last_name}
                             onChange={this.update('last_name')}
                             className="sign-up-last"
-                            size="8"/>
+                            // size="8"
+                            />
                         </label>
                         </div>
                     <label className="sign-up-password">

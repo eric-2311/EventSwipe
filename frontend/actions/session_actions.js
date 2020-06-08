@@ -4,6 +4,7 @@ export const RECEIVE_CURRENT_USER = 'RECEIVE_CURRENT_USER';
 export const LOGOUT_CURRENT_USER = 'LOGOUT_CURRENT_USER';
 export const SIGN_UP_USER = 'SIGN_UP_USER';
 export const RECEIVE_EMAIL = 'RECEIVE_EMAIL';
+export const CLEAR_ERRORS = 'CLEAR_ERRORS';
 export const RECEIVE_SESSION_ERRORS = 'RECEIVE_SESSION_ERRORS';
 
 const receiveCurrentUser = currentUser => ({
@@ -45,10 +46,14 @@ export const logout = () => dispatch => (
 )
 
 export const receiveErrors = errors => {
-    debugger;
+    // debugger;
     return {type: RECEIVE_SESSION_ERRORS,
     errors}
 }
+
+export const clearErrors = () => ({
+    type: CLEAR_ERRORS
+})
 
 const getEmail = email => {
     return ({type: RECEIVE_EMAIL,
