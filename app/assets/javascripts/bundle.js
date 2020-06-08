@@ -623,7 +623,7 @@ var LoginForm = /*#__PURE__*/function (_React$Component) {
 
     _classCallCheck(this, LoginForm);
 
-    debugger;
+    // debugger
     _this = _super.call(this, props);
     _this.state = {
       email: '',
@@ -792,7 +792,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 var mSTP = function mSTP(state) {
-  debugger;
+  // debugger
   return {
     email: state.session.email,
     errors: state.errors.session,
@@ -960,13 +960,13 @@ var SignUpForm = /*#__PURE__*/function (_React$Component) {
       e.preventDefault();
       var user = Object.assign({}, this.state);
       this.props.processForm(user); // .then(this.props.login(this.state))
-
-      this.setState({
-        email: '',
-        first_name: '',
-        last_name: '',
-        password: ''
-      }); // 
+      // this.setState({
+      //     email: '',
+      //     first_name: '',
+      //     last_name: '',
+      //     password: ''
+      // })
+      // 
       // <Redirect to="/" />
     }
   }, {
@@ -975,7 +975,12 @@ var SignUpForm = /*#__PURE__*/function (_React$Component) {
       // if (this.props.login(this.state)){
       //     return <Redirect to="/"/>
       // }
-      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("section", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "signup-pic-container"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+        src: window.profpicURL,
+        className: "signup-pic"
+      })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "sign-up-form-container"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
         onSubmit: this.handleSubmit
@@ -995,15 +1000,15 @@ var SignUpForm = /*#__PURE__*/function (_React$Component) {
         placeholder: "first name",
         value: this.state.first_name,
         onChange: this.update('first_name'),
+        className: "sign-up-first",
         size: "9"
-      })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
-        className: "sign-up-name"
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+      })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
         type: "text",
         placeholder: "last name",
         value: this.state.last_name,
         onChange: this.update('last_name'),
-        size: "9"
+        className: "sign-up-last",
+        size: "8"
       }))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
         className: "sign-up-password"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
@@ -1018,7 +1023,7 @@ var SignUpForm = /*#__PURE__*/function (_React$Component) {
       }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
         to: "/login",
         className: "login-link"
-      }, "Log in instead")));
+      }, "Log in instead"))));
     }
   }]);
 
@@ -1390,8 +1395,7 @@ var sessionReducer = function sessionReducer() {
       var newState = Object.assign({}, state, {
         email: action.email,
         flag: flag
-      }); // newState['user'] = action.email;
-
+      });
       return newState;
 
     case _actions_session_actions__WEBPACK_IMPORTED_MODULE_0__["LOGOUT_CURRENT_USER"]:
@@ -1540,7 +1544,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "logout", function() { return logout; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getEmail", function() { return getEmail; });
 var signup = function signup(user) {
-  debugger;
+  // debugger;
   return $.ajax({
     method: 'POST',
     url: '/api/users',

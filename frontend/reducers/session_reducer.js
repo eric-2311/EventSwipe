@@ -18,7 +18,6 @@ const sessionReducer = (state = _nullUser, action) => {
                 flag = true;
             }
             const newState = Object.assign({}, state, { email: action.email, flag: flag });
-            // newState['user'] = action.email;
             return newState
         case LOGOUT_CURRENT_USER:
             return _nullUser;

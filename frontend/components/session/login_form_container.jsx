@@ -3,7 +3,7 @@ import { login, receiveErrors, validateEmail } from '../../actions/session_actio
 import LoginForm from './login_form';
 
 const mSTP = state => {
-  debugger
+  // debugger
   return {
     email: state.session.email,
     errors: state.errors.session,

@@ -4,7 +4,7 @@ import { withRouter } from 'react-router';
 
 class LoginForm extends React.Component {
   constructor(props) {
-    debugger
+    // debugger
     super(props);
     this.state = {
       email: '',
