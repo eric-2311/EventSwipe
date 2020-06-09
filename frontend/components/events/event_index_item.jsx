@@ -46,16 +46,16 @@ class EventIndexItem extends React.Component{
                 </div>
                 <br/>
                 <div className="index-item-container">
-                <Link to={`/events/${this.props.id}`} style={{ textDecoration: 'none', color: 'black' }} >
-                    {this.props.title}
-                </Link>
-                <br/>
-                {/* {this.props.description} */}
                 <div className="event-date">
                     {this.convertDate(this.props.startDate)} - {this.convertDate(this.props.endDate)}
                 </div>
                 <br/>
-                $ {this.props.price}
+                {/* {this.props.description} */}
+                <Link to={`/events/${this.props.id}`} style={{ textDecoration: 'none', color: 'black' }} >
+                    {this.props.title}
+                </Link>
+                <br/>
+                {/* $ {this.props.price} */}
                 </div>
             </li>
         )
