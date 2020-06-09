@@ -1,5 +1,5 @@
 .event-index-item{
-    border: 1px solid black;
+    border: 1px solid lightgray;
     padding: 10px;
     /* display: flex;
     justify-content: center; */
@@ -19,4 +19,17 @@
     list-style: none;
     flex-wrap: wrap;
     /* padding: 10px; */
+}
+
+.index-item-img{
+    height: 200px;
+    width: 300px;
+    /* object-fit: cover; */
+    /* border: 1px solid black; */
+}
+
+.event-pic{
+    height: 200px;
+    width: 300px;
+    /* object-fit: cover; */
 }

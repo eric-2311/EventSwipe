@@ -1,5 +1,6 @@
 import { connect } from 'react-redux'
 import EventSamples from './event_samples'
+import { fetchAllEvents, fetchEvent } from '../../actions/event_actions';
 
 const mSTP = state => ({
     events: Object.values(state.entities.events),

@@ -2,6 +2,8 @@ import React from 'react';
 import { Redirect, Link } from 'react-router-dom';
 import CategoryNav from '../category/Category_nav';
 import Promos from './promos';
+import EventSamplesContainer from '../events/event_samples_container';
+import EventSamples from '../events/event_samples';
 
 class Splash extends React.Component {
     render(){
@@ -26,6 +28,7 @@ class Splash extends React.Component {
                 <br/>
                 <br/>
                 <Promos />
+                <EventSamplesContainer />
             </div>
         )
     }
