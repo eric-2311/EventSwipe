@@ -86,6 +86,90 @@
 /************************************************************************/
 /******/ ({
 
+/***/ "./frontend/actions/event_actions.js":
+/*!*******************************************!*\
+  !*** ./frontend/actions/event_actions.js ***!
+  \*******************************************/
+/*! exports provided: RECEIVE_ALL_EVENTS, RECEIVE_EVENT, REMOVE_EVENT, fetchAllEvents, fetchEvent, createEvent, updateEvent, deleteEvent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "RECEIVE_ALL_EVENTS", function() { return RECEIVE_ALL_EVENTS; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "RECEIVE_EVENT", function() { return RECEIVE_EVENT; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "REMOVE_EVENT", function() { return REMOVE_EVENT; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "fetchAllEvents", function() { return fetchAllEvents; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "fetchEvent", function() { return fetchEvent; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "createEvent", function() { return createEvent; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "updateEvent", function() { return updateEvent; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "deleteEvent", function() { return deleteEvent; });
+/* harmony import */ var _util_event_api_util__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../util/event_api_util */ "./frontend/util/event_api_util.js");
+
+var RECEIVE_ALL_EVENTS = 'RECEIVE_ALL_EVENTS';
+var RECEIVE_EVENT = 'RECEIVE_EVENT';
+var REMOVE_EVENT = 'REMOVE_EVENT';
+
+var receiveAllEvents = function receiveAllEvents(events) {
+  return {
+    type: RECEIVE_ALL_EVENTS,
+    events: events
+  };
+};
+
+var fetchAllEvents = function fetchAllEvents() {
+  return function (dispatch) {
+    return _util_event_api_util__WEBPACK_IMPORTED_MODULE_0__["fetchEvents"]().then(function (events) {
+      return dispatch(receiveAllEvents(events));
+    });
+  };
+};
+
+var receiveEvent = function receiveEvent(event) {
+  return {
+    type: RECEIVE_EVENT,
+    event: event
+  };
+};
+
+var fetchEvent = function fetchEvent(eventId) {
+  return function (dispatch) {
+    return _util_event_api_util__WEBPACK_IMPORTED_MODULE_0__["fetchEvent"](eventId).then(function (event) {
+      return dispatch(receiveEvent(event));
+    });
+  };
+};
+var createEvent = function createEvent(event) {
+  return function (dispatch) {
+    return _util_event_api_util__WEBPACK_IMPORTED_MODULE_0__["createEvent"](event).then(function (event) {
+      return dispatch(receiveEvent(event));
+    });
+  };
+};
+var updateEvent = function updateEvent(event) {
+  return function (dispatch) {
+    return _util_event_api_util__WEBPACK_IMPORTED_MODULE_0__["updateEvent"](event).then(function (event) {
+      return dispatch(receiveEvent(event));
+    });
+  };
+};
+
+var removeEvent = function removeEvent(eventId) {
+  return {
+    type: REMOVE_EVENT,
+    eventId: eventId
+  };
+};
+
+var deleteEvent = function deleteEvent(eventId) {
+  return function (dispatch) {
+    return _util_event_api_util__WEBPACK_IMPORTED_MODULE_0__["deleteEvent"](eventId).then(function () {
+      return dispatch(removeEvent(eventId));
+    });
+  };
+};
+
+/***/ }),
+
 /***/ "./frontend/actions/session_actions.js":
 /*!*********************************************!*\
   !*** ./frontend/actions/session_actions.js ***!
@@ -222,7 +306,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
- // import LoginSignUpFormContainer from './session/login_signup_form_container';
+
 
 var App = function App() {
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -1244,13 +1328,11 @@ __webpack_require__.r(__webpack_exports__);
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
 
- // import { signup, login, logout } from './actions/session_actions';  
 
 
 
 document.addEventListener('DOMContentLoaded', function () {
-  var root = document.getElementById('root'); // const store = configureStore();
-
+  var root = document.getElementById('root');
   var store;
 
   if (window.currentUser) {
@@ -1267,12 +1349,9 @@ document.addEventListener('DOMContentLoaded', function () {
   } else {
     store = Object(_store_store__WEBPACK_IMPORTED_MODULE_2__["default"])();
   } // Testing
-  // window.signup = signup;
-  // window.login = login;
-  // window.logout = logout;
-  // window.getState = store.getState;
-  // window.dispatch = store.dispatch;
 
+
+  window.getState = store.getState; // window.dispatch = store.dispatch;
 
   react_dom__WEBPACK_IMPORTED_MODULE_1___default.a.render( /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_root__WEBPACK_IMPORTED_MODULE_3__["default"], {
     store: store
@@ -1292,10 +1371,13 @@ document.addEventListener('DOMContentLoaded', function () {
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var redux__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! redux */ "./node_modules/redux/es/redux.js");
 /* harmony import */ var _users_reducer__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./users_reducer */ "./frontend/reducers/users_reducer.js");
+/* harmony import */ var _events_reducer__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./events_reducer */ "./frontend/reducers/events_reducer.js");
+
 
 
 var entitiesReducer = Object(redux__WEBPACK_IMPORTED_MODULE_0__["combineReducers"])({
-  users: _users_reducer__WEBPACK_IMPORTED_MODULE_1__["default"]
+  users: _users_reducer__WEBPACK_IMPORTED_MODULE_1__["default"],
+  events: _events_reducer__WEBPACK_IMPORTED_MODULE_2__["default"]
 });
 /* harmony default export */ __webpack_exports__["default"] = (entitiesReducer);
 
@@ -1318,6 +1400,46 @@ var errorsReducer = Object(redux__WEBPACK_IMPORTED_MODULE_0__["combineReducers"]
   session: _session_errors_reducer__WEBPACK_IMPORTED_MODULE_1__["default"]
 });
 /* harmony default export */ __webpack_exports__["default"] = (errorsReducer);
+
+/***/ }),
+
+/***/ "./frontend/reducers/events_reducer.js":
+/*!*********************************************!*\
+  !*** ./frontend/reducers/events_reducer.js ***!
+  \*********************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _actions_event_actions__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../actions/event_actions */ "./frontend/actions/event_actions.js");
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+
+
+var eventReducer = function eventReducer() {
+  var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
+  var action = arguments.length > 1 ? arguments[1] : undefined;
+  Object.freeze(state);
+
+  switch (action.type) {
+    case _actions_event_actions__WEBPACK_IMPORTED_MODULE_0__["RECEIVE_ALL_EVENTS"]:
+      return action.events;
+
+    case _actions_event_actions__WEBPACK_IMPORTED_MODULE_0__["RECEIVE_EVENT"]:
+      return Object.assign({}, state, _defineProperty({}, action.event.id, action.eventId));
+
+    case _actions_event_actions__WEBPACK_IMPORTED_MODULE_0__["REMOVE_EVENT"]:
+      var newState = Object.assign({}, state);
+      delete newState[action.eventId];
+      return newState;
+
+    default:
+      return state;
+  }
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (eventReducer);
 
 /***/ }),
 
@@ -1499,6 +1621,59 @@ var configureStore = function configureStore(preloadedState) {
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (configureStore);
+
+/***/ }),
+
+/***/ "./frontend/util/event_api_util.js":
+/*!*****************************************!*\
+  !*** ./frontend/util/event_api_util.js ***!
+  \*****************************************/
+/*! exports provided: fetchEvents, fetchEvent, createEvent, updateEvent, deleteEvent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "fetchEvents", function() { return fetchEvents; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "fetchEvent", function() { return fetchEvent; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "createEvent", function() { return createEvent; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "updateEvent", function() { return updateEvent; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "deleteEvent", function() { return deleteEvent; });
+var fetchEvents = function fetchEvents() {
+  return $.ajax({
+    method: 'GET',
+    url: '/api/events'
+  });
+};
+var fetchEvent = function fetchEvent(eventId) {
+  return $.ajax({
+    method: 'GET',
+    url: "/api/events/".concat(eventId)
+  });
+};
+var createEvent = function createEvent(event) {
+  return $.ajax({
+    method: 'POST',
+    url: '/api/events',
+    data: {
+      event: event
+    }
+  });
+};
+var updateEvent = function updateEvent(event) {
+  return $.ajax({
+    method: 'PATCH',
+    url: "/api/events/".concat(event.id),
+    data: {
+      event: event
+    }
+  });
+};
+var deleteEvent = function deleteEvent(eventId) {
+  return $.ajax({
+    method: 'DELETE',
+    url: "/api/events/".concat(eventId)
+  });
+};
 
 /***/ }),
 

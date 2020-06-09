@@ -1,12 +1,10 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-// import { signup, login, logout } from './actions/session_actions';  
 import configureStore from './store/store';
 import Root from './components/root';
 
 document.addEventListener('DOMContentLoaded', () => {
     const root = document.getElementById('root');
-    // const store = configureStore();
 
     let store;
     if (window.currentUser) {
@@ -23,10 +21,7 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
     // Testing
-    // window.signup = signup;
-    // window.login = login;
-    // window.logout = logout;
-    // window.getState = store.getState;
+    window.getState = store.getState;
     // window.dispatch = store.dispatch;
 
     ReactDOM.render(<Root store={store} />, root);

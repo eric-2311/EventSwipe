@@ -7,7 +7,6 @@ import LoginFormContainer from './session/login_form_container';
 import SignupFormContainer from './session/signup_form_container';
 import SplashContainer from './session/splash_container';
 import Footer from './footer/footer';
-// import LoginSignUpFormContainer from './session/login_signup_form_container';
 
 const App = () => (
     <div className="nav-container">
@@ -24,9 +23,7 @@ const App = () => (
             <AuthRoute exact path="/signup" component={SignupFormContainer} />
         {/* </Switch> */}
         </main>
-        {/* <footer> */}
-            <Footer className="footer-container" />
-        {/* </footer> */}
+        <Footer className="footer-container" />
     </div>
 )
 

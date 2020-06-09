@@ -5,13 +5,13 @@ class Promos extends React.Component {
         return (
             <section className="promo">
                 <div className="promo-content">
-                <h1 className="promo-header">Our favorites collection</h1>
-                <br/>
-                <p className="promo-text">
-                    Browse through some of the best collections of Online Events
+                    <h1 className="promo-header">Our favorites collection</h1>
                     <br/>
-                    hand picked by people who know he area best.
-                </p>
+                    <p className="promo-text">
+                        Browse through some of the best collections of Online Events
+                        <br/>
+                        hand picked by people who know he area best.
+                    </p>
                 </div>
             </section>
         )
