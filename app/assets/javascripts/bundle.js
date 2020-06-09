@@ -618,6 +618,41 @@ var EventIndexItem = /*#__PURE__*/function (_React$Component) {
           className: "event-pic",
           src: window.toyURL
         });
+      } else if (title === 'Anime Con 2020') {
+        return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+          className: "event-pic",
+          src: window.animeURL
+        });
+      } else if (title === 'Frozen On Ice') {
+        return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+          className: "event-pic",
+          src: window.frozenURL
+        });
+      } else if (title === 'Central Park Picnic Day') {
+        return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+          className: "event-pic",
+          src: window.picnicURL
+        });
+      } else if (title === 'Food Drive') {
+        return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+          className: "event-pic",
+          src: window.food
+        });
+      } else if (title === 'Doggy Playdate NYC') {
+        return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+          className: "event-pic",
+          src: window.dogs
+        });
+      } else if (title === 'A Taste of the Mediterranean') {
+        return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+          className: "event-pic",
+          src: window.med
+        });
+      } else if (title === 'Portals') {
+        return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+          className: "event-pic",
+          src: window.portals
+        });
       }
     }
   }, {
