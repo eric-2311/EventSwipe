@@ -1,9 +1,9 @@
 import React from 'react';
-import { Link, Redirect } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 class SignUpForm extends React.Component {
     constructor(props){
-        debugger
+        // debugger
         super(props);
         this.state = {
             email: '',

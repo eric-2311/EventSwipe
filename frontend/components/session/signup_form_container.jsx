@@ -3,11 +3,9 @@ import { signup, clearErrors, login } from '../../actions/session_actions';
 import SignUpForm from './sign_up_form';
 
 const mSTP = state => {
-  debugger
+  // debugger
   return {
     errors: state.errors.session
-    // formType: 'Sign Up',
-    // navLink: <Link to="/login">Already a member? Sign in!</Link>,
   };
 };
 

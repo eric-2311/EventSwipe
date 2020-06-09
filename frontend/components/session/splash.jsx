@@ -1,5 +1,5 @@
 import React from 'react';
-import GreetingContainer from '../greeting/Greeting_container';
+import { Redirect, Link } from 'react-router-dom';
 import CategoryNav from '../category/Category_nav';
 import Promos from './promos';
 
@@ -14,7 +14,7 @@ class Splash extends React.Component {
                         <br/>
                         <p className="event-word">event!</p>
                     </h1>
-                    <input type="submit" value="Browse events  ➡" className="browse-btn"/>
+                    <Link to="/events" className="browse-btn">Browse events  ➡</Link>
                 </aside>
                     <div className="image-container">
                         <img src={window.splashURL} className="splash-img" />
