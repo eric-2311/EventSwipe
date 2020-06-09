@@ -50,11 +50,11 @@ class EventIndexItem extends React.Component{
                     {this.props.title}
                 </Link>
                 <br/>
-                {this.props.description}
-                <br/>
+                {/* {this.props.description} */}
                 <div className="event-date">
                     {this.convertDate(this.props.startDate)} - {this.convertDate(this.props.endDate)}
                 </div>
+                <br/>
                 $ {this.props.price}
                 </div>
             </li>

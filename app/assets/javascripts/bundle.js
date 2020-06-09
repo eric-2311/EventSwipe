@@ -670,9 +670,9 @@ var EventIndexItem = /*#__PURE__*/function (_React$Component) {
           textDecoration: 'none',
           color: 'black'
         }
-      }, this.props.title), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), this.props.description, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      }, this.props.title), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "event-date"
-      }, this.convertDate(this.props.startDate), " - ", this.convertDate(this.props.endDate)), "$ ", this.props.price));
+      }, this.convertDate(this.props.startDate), " - ", this.convertDate(this.props.endDate)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), "$ ", this.props.price));
     }
   }]);
 
