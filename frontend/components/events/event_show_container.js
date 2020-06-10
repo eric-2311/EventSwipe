@@ -4,8 +4,7 @@ import EventShow from './event_show';
 
 const mSTP = (state, ownProps) => {
     // debugger
-    return {event: state.entities.events[ownProps.match.params.eventId],
-            events: state.entities.events}
+    return {event: state.entities.events[ownProps.match.params.eventId]}
 }
 
 const mDTP = dispatch => ({

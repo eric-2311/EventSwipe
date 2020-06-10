@@ -13,7 +13,7 @@ user_2 = User.create!(email: "cbrown@example.com", password: "examplepass", firs
 
 Event.destroy_all
 event_1 = Event.create!(title: "EDCLV", category: "Music", description: "EDCLV 2020, LET'S MAKE SOME NOISE!!", host_id: 1, price: 299.99, start_date: "2020/10/02 23:00", end_date: "2020/10/04 08:00", location: "Las Vegas, Neveda")
-event_2 = Event.create!(title: "Oktoberfest NYC", category: "Food & Drink", description: "Bottom's up!", host_id: 2, price: 100.00, start_date: "2021/09/18 21:00:00", end_date: "2021/10/04 24:00:00", location: "New York City, New York")
+event_2 = Event.create!(title: "Oktoberfest NYC", category: "Food & Drink", description: "Bottom's up, bottoms's up...hey what's in your cup? Got a couple bottles, but a couple ain't enough!", host_id: 2, price: 100.00, start_date: "2021/09/18 21:00:00", end_date: "2021/10/04 24:00:00", location: "New York City, New York")
 event_3 = Event.create!(title: "Toy Drive", category: "Charity & Causes", description: "Come donate your old toys for those in need!", host_id: 3, price: 0.00, start_date: "2020/12/01 13:00:00", end_date: "2020/12/03 20:00:00", location: "Hennepin County Minnesota")
 event_4 = Event.create!(title: "Anime Con 2020", category: "Entertainment", description: "Anime Convention 2020, come meet the artists!", host_id: 1, price: 59.00, start_date: "2020/08/12 14:00:00", end_date:"2020/08/15 23:00:00", location: "San Francisco, California")
 event_5 = Event.create!(title: "Frozen On Ice", category: "Music", description: "Let it go!", host_id: 2, price: 70.00, start_date: "2020/09/22 20:00:00", end_date:"2020/10/06 23:00:00", location: "New York City, New York")

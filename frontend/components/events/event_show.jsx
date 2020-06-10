@@ -1,17 +1,66 @@
 import React from 'react';
-// import Background from '../../../app/assets/images/backround';
 
 class EventShow extends React.Component{
     constructor(props){
         super(props);
-
+        // debugger
         this.selectImage = this.selectImage.bind(this);
+        this.convertDate = this.convertDate.bind(this);
+        this.eventMonth = this.eventMonth.bind(this);
+        this.eventDay = this.eventDay.bind(this);
     }
 
     componentDidMount(){
         // debugger
         this.props.fetchEvent(this.props.match.params.eventId);
         this.props.fetchEvents();
+    }
+
+    convertDate(date){
+        const formatDate = new Date(date)
+        return `${formatDate.toLocaleString('en-US')}`
+    }
+
+    eventMonth(date){
+        const formatDate = new Date(date);
+        const eventDate = formatDate.getUTCMonth()
+
+        if (eventDate === 0){
+            return "JAN"
+        } else if (eventDate === 1){
+            return "FEB"
+        } else if (eventDate === 2){
+            return "MAR"
+        } else if (eventDate === 3){
+            return "APR"
+        } else if (eventDate === 4){
+            return "MAY"
+        } else if (eventDate === 5){
+            return "JUN"
+        } else if (eventDate === 6){
+            return "JUL"
+        } else if (eventDate === 7){
+            return "AUG"
+        } else if (eventDate === 8){
+            return "SEP"
+        } else if (eventDate === 9){
+            return "OCT"
+        } else if (eventDate === 10){
+            return "NOV"
+        } else if (eventDate === 11){
+            return "DEC"
+        }
+    }
+
+    eventDay(date){
+        const formatDate = new Date(date);
+        let day = formatDate.getDate();
+
+        if (day < 10){
+            return `0${day}`
+        }
+
+        return day;
     }
 
     selectImage(title){
@@ -48,29 +97,38 @@ class EventShow extends React.Component{
         if (!this.props.event){
             return null;
         }
-
+        // debugger
         return (
             <div className="show-container">
                 <div className="show-back-container">
                     <img src={window.backround} className="show-background" />
                 </div>
                 <div className="show-content">
-                    <div className="event-show-pic-container">
+                    <div className="save-me">
                         {this.selectImage(this.props.event.title)}
+                        <div className="show-description">
+                            {this.props.event.description}
+                        </div>
                     </div>
                     <div className="show-info">
+                        <div className="show-date">
+                            {this.eventMonth(this.props.event.start_date)}
+                            <br/>
+                            {this.eventDay(this.props.event.start_date)}
+                        </div>
                         <div className="show-title">
                             {this.props.event.title}
                         </div>
-                       
+                        
                         {/* {this.props.event.start_date}
                         {this.props.event.end_date} */}
-                        {this.props.event.price}
+                        <div className="show-price">
+                            ${this.props.event.price}
+                        </div>
                     </div>
+                    
                 </div>
-                 <div className="show-description">
-                    {this.props.event.description}
-                </div>
+                
             </div>
         )
     }

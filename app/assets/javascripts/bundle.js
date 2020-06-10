@@ -680,7 +680,7 @@ var EventIndexItem = /*#__PURE__*/function (_React$Component) {
         className: "index-item-container"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "event-date"
-      }, this.convertDate(this.props.startDate), " - ", this.convertDate(this.props.endDate)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
+      }, this.convertDate(this.props.startDate)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
         to: "/events/".concat(this.props.id),
         style: {
           textDecoration: 'none',
@@ -856,7 +856,7 @@ function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Re
 
 function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
 
- // import Background from '../../../app/assets/images/backround';
+
 
 var EventShow = /*#__PURE__*/function (_React$Component) {
   _inherits(EventShow, _React$Component);
@@ -868,8 +868,12 @@ var EventShow = /*#__PURE__*/function (_React$Component) {
 
     _classCallCheck(this, EventShow);
 
-    _this = _super.call(this, props);
+    _this = _super.call(this, props); // debugger
+
     _this.selectImage = _this.selectImage.bind(_assertThisInitialized(_this));
+    _this.convertDate = _this.convertDate.bind(_assertThisInitialized(_this));
+    _this.eventMonth = _this.eventMonth.bind(_assertThisInitialized(_this));
+    _this.eventDay = _this.eventDay.bind(_assertThisInitialized(_this));
     return _this;
   }
 
@@ -879,6 +883,56 @@ var EventShow = /*#__PURE__*/function (_React$Component) {
       // debugger
       this.props.fetchEvent(this.props.match.params.eventId);
       this.props.fetchEvents();
+    }
+  }, {
+    key: "convertDate",
+    value: function convertDate(date) {
+      var formatDate = new Date(date);
+      return "".concat(formatDate.toLocaleString('en-US'));
+    }
+  }, {
+    key: "eventMonth",
+    value: function eventMonth(date) {
+      var formatDate = new Date(date);
+      var eventDate = formatDate.getUTCMonth();
+
+      if (eventDate === 0) {
+        return "JAN";
+      } else if (eventDate === 1) {
+        return "FEB";
+      } else if (eventDate === 2) {
+        return "MAR";
+      } else if (eventDate === 3) {
+        return "APR";
+      } else if (eventDate === 4) {
+        return "MAY";
+      } else if (eventDate === 5) {
+        return "JUN";
+      } else if (eventDate === 6) {
+        return "JUL";
+      } else if (eventDate === 7) {
+        return "AUG";
+      } else if (eventDate === 8) {
+        return "SEP";
+      } else if (eventDate === 9) {
+        return "OCT";
+      } else if (eventDate === 10) {
+        return "NOV";
+      } else if (eventDate === 11) {
+        return "DEC";
+      }
+    }
+  }, {
+    key: "eventDay",
+    value: function eventDay(date) {
+      var formatDate = new Date(date);
+      var day = formatDate.getDate();
+
+      if (day < 10) {
+        return "0".concat(day);
+      }
+
+      return day;
     }
   }, {
     key: "selectImage",
@@ -951,7 +1005,8 @@ var EventShow = /*#__PURE__*/function (_React$Component) {
       // debugger
       if (!this.props.event) {
         return null;
-      }
+      } // debugger
+
 
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "show-container"
@@ -963,14 +1018,18 @@ var EventShow = /*#__PURE__*/function (_React$Component) {
       })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "show-content"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "event-show-pic-container"
-      }, this.selectImage(this.props.event.title)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "save-me"
+      }, this.selectImage(this.props.event.title), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "show-description"
+      }, this.props.event.description)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "show-info"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "show-date"
+      }, this.eventMonth(this.props.event.start_date), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), this.eventDay(this.props.event.start_date)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "show-title"
-      }, this.props.event.title), this.props.event.price)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "show-description"
-      }, this.props.event.description));
+      }, this.props.event.title), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "show-price"
+      }, "$", this.props.event.price))));
     }
   }]);
 
@@ -1000,8 +1059,7 @@ __webpack_require__.r(__webpack_exports__);
 var mSTP = function mSTP(state, ownProps) {
   // debugger
   return {
-    event: state.entities.events[ownProps.match.params.eventId],
-    events: state.entities.events
+    event: state.entities.events[ownProps.match.params.eventId]
   };
 };
 
