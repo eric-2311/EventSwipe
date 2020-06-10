@@ -1924,7 +1924,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
 
 
-var eventReducer = function eventReducer() {
+var eventsReducer = function eventsReducer() {
   var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
   var action = arguments.length > 1 ? arguments[1] : undefined;
   Object.freeze(state);
@@ -1946,7 +1946,7 @@ var eventReducer = function eventReducer() {
   }
 };
 
-/* harmony default export */ __webpack_exports__["default"] = (eventReducer);
+/* harmony default export */ __webpack_exports__["default"] = (eventsReducer);
 
 /***/ }),
 
