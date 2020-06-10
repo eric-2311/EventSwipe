@@ -7,6 +7,10 @@
     color: white;
     width: 100%;
     justify-content: center;
+    /* position: fixed; */
+    bottom: 0;
+    margin-top: -55px;
+    /* flex-shrink: 0; */
 }
 
 .footer-nav{
@@ -23,7 +27,3 @@
 .footer-nav-item:hover{
     cursor: pointer;
 }
-
-/* .footer-container{
-    /* flex-shrink: 0;
-} */

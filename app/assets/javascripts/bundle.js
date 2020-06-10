@@ -134,6 +134,7 @@ var receiveEvent = function receiveEvent(event) {
 var fetchEvent = function fetchEvent(eventId) {
   return function (dispatch) {
     return _util_event_api_util__WEBPACK_IMPORTED_MODULE_0__["fetchEvent"](eventId).then(function (event) {
+      // debugger
       return dispatch(receiveEvent(event));
     });
   };
@@ -313,9 +314,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 var App = function App() {
-  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    className: "nav-container"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("header", {
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("header", {
     className: "nav"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
     to: "/",
@@ -342,9 +341,9 @@ var App = function App() {
     exact: true,
     path: "/signup",
     component: _session_signup_form_container__WEBPACK_IMPORTED_MODULE_7__["default"]
-  })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_footer_footer__WEBPACK_IMPORTED_MODULE_9__["default"], {
+  })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("footer", {
     className: "footer-container"
-  }));
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_footer_footer__WEBPACK_IMPORTED_MODULE_9__["default"], null)));
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (App);
@@ -857,7 +856,7 @@ function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Re
 
 function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
 
-
+ // import Background from '../../../app/assets/images/backround';
 
 var EventShow = /*#__PURE__*/function (_React$Component) {
   _inherits(EventShow, _React$Component);
@@ -865,20 +864,113 @@ var EventShow = /*#__PURE__*/function (_React$Component) {
   var _super = _createSuper(EventShow);
 
   function EventShow(props) {
+    var _this;
+
     _classCallCheck(this, EventShow);
 
-    return _super.call(this, props);
+    _this = _super.call(this, props);
+    _this.selectImage = _this.selectImage.bind(_assertThisInitialized(_this));
+    return _this;
   }
 
   _createClass(EventShow, [{
     key: "componentDidMount",
     value: function componentDidMount() {
-      this.props.fetchEvent();
+      // debugger
+      this.props.fetchEvent(this.props.match.params.eventId);
+      this.props.fetchEvents();
+    }
+  }, {
+    key: "selectImage",
+    value: function selectImage(title) {
+      if (title === 'EDCLV') {
+        return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+          className: "event-show-pic",
+          src: window.edclvURL
+        });
+      } else if (title === 'Oktoberfest NYC') {
+        return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+          className: "event-show-pic",
+          src: window.oktoberfestURL
+        });
+      } else if (title === 'Toy Drive') {
+        return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+          className: "event-show-pic",
+          src: window.toyURL
+        });
+      } else if (title === 'Anime Con 2020') {
+        return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+          className: "event-show-pic",
+          src: window.animeURL
+        });
+      } else if (title === 'Frozen On Ice') {
+        return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+          className: "event-show-pic",
+          src: window.frozenURL
+        });
+      } else if (title === 'Central Park Picnic Day') {
+        return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+          className: "event-show-pic",
+          src: window.picnicURL
+        });
+      } else if (title === 'Food Drive') {
+        return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+          className: "event-show-pic",
+          src: window.food
+        });
+      } else if (title === 'Doggy Playdate NYC') {
+        return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+          className: "event-show-pic",
+          src: window.dogs
+        });
+      } else if (title === 'A Taste of the Mediterranean') {
+        return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+          className: "event-show-pic",
+          src: window.med
+        });
+      } else if (title === 'Portals') {
+        return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+          className: "event-show-pic",
+          src: window.portals
+        });
+      } else if (title === 'Gallery Showing') {
+        return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+          className: "event-show-pic",
+          src: window.gallery
+        });
+      } else if (title === 'Run For Fun!') {
+        return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+          className: "event-show-pic",
+          src: window.marathon
+        });
+      }
     }
   }, {
     key: "render",
     value: function render() {
-      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Show page for event");
+      // debugger
+      if (!this.props.event) {
+        return null;
+      }
+
+      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "show-container"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "show-back-container"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+        src: window.backround,
+        className: "show-background"
+      })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "show-content"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "event-show-pic-container"
+      }, this.selectImage(this.props.event.title)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "show-info"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "show-title"
+      }, this.props.event.title), this.props.event.price)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "show-description"
+      }, this.props.event.description));
     }
   }]);
 
@@ -906,8 +998,10 @@ __webpack_require__.r(__webpack_exports__);
 
 
 var mSTP = function mSTP(state, ownProps) {
+  // debugger
   return {
-    event: state.entities.events[ownProps.match.params.eventId]
+    event: state.entities.events[ownProps.match.params.eventId],
+    events: state.entities.events
   };
 };
 
@@ -915,6 +1009,9 @@ var mDTP = function mDTP(dispatch) {
   return {
     fetchEvent: function fetchEvent(eventId) {
       return dispatch(Object(_actions_event_actions__WEBPACK_IMPORTED_MODULE_1__["fetchEvent"])(eventId));
+    },
+    fetchEvents: function fetchEvents() {
+      return dispatch(Object(_actions_event_actions__WEBPACK_IMPORTED_MODULE_1__["fetchAllEvents"])());
     }
   };
 };
@@ -1931,10 +2028,12 @@ var eventsReducer = function eventsReducer() {
 
   switch (action.type) {
     case _actions_event_actions__WEBPACK_IMPORTED_MODULE_0__["RECEIVE_ALL_EVENTS"]:
+      // debugger
       return action.events;
 
     case _actions_event_actions__WEBPACK_IMPORTED_MODULE_0__["RECEIVE_EVENT"]:
-      return Object.assign({}, state, _defineProperty({}, action.event.id, action.eventId));
+      // debugger
+      return Object.assign({}, state, _defineProperty({}, action.event.id, action.event));
 
     case _actions_event_actions__WEBPACK_IMPORTED_MODULE_0__["REMOVE_EVENT"]:
       var newState = Object.assign({}, state);
@@ -2222,7 +2321,8 @@ var Auth = function Auth(_ref) {
 var Protected = function Protected(_ref2) {
   var Component = _ref2.component,
       path = _ref2.path,
-      loggedIn = _ref2.loggedIn;
+      loggedIn = _ref2.loggedIn,
+      exact = _ref2.exact;
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Route"], {
     path: path,
     exact: exact,

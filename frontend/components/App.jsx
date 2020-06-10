@@ -11,7 +11,7 @@ import SplashContainer from './session/splash_container';
 import Footer from './footer/footer';
 
 const App = () => (
-    <div className="nav-container">
+    <div>
         <header className="nav">
             <Link to="/" className="nav-logo">eventswipe</Link>
             <GreetingContainer />
@@ -23,7 +23,9 @@ const App = () => (
             <AuthRoute exact path="/login" component={LoginFormContainer} />
             <AuthRoute exact path="/signup" component={SignupFormContainer} />
         </main>
-        <Footer className="footer-container" />
+        <footer className="footer-container">
+            <Footer  />
+        </footer>
     </div>
 )
 

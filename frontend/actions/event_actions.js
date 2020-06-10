@@ -19,10 +19,12 @@ const receiveEvent = event => ({
     event
 })
 
-export const fetchEvent = eventId => dispatch => (
-    EventApiUtils.fetchEvent(eventId)
-        .then(event => dispatch(receiveEvent(event)))
-)
+export const fetchEvent = eventId => dispatch => {
+    return EventApiUtils.fetchEvent(eventId)
+                .then(event => {
+                    // debugger
+                    return dispatch(receiveEvent(event))})
+}
 
 export const createEvent = event => dispatch => (
     EventApiUtils.createEvent(event)
