@@ -1,6 +1,6 @@
 import { RECEIVE_ALL_EVENTS, RECEIVE_EVENT, REMOVE_EVENT } from '../actions/event_actions';
 
-const eventReducer = (state = {}, action) => {
+const eventsReducer = (state = {}, action) => {
     Object.freeze(state);
 
     switch(action.type){
@@ -17,4 +17,4 @@ const eventReducer = (state = {}, action) => {
     }
 }
 
-export default eventReducer;
+export default eventsReducer;
