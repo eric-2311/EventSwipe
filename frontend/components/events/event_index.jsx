@@ -25,6 +25,11 @@ class EventIndex extends React.Component {
                                 price={event.price}/>
                     })}
                 </ul>
+                <br/>
+                <br/>
+                <br/>
+                <br/>
+                
             </div>
         )
     }

@@ -35,6 +35,10 @@ class EventIndexItem extends React.Component{
             return <img className="event-pic" src={window.med} />
         } else if (title === 'Portals'){
             return <img className="event-pic" src={window.portals} />
+        } else if (title === 'Gallery Showing'){
+            return <img className="event-pic" src={window.gallery} />
+        } else if (title === 'Run For Fun!'){
+            return <img className="event-pic" src={window.marathon} />
         }
     }
 
