@@ -74,13 +74,20 @@ class TicketPurchaseForm extends React.Component{
                         <br/>
                         <label>Please select number of registrations
                             <select className="ticket-dropdown">
-                                <option>1</option>
-                                <option>2</option>
-                                <option>3</option>
-                                <option>4</option>
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                                <option value="4">4</option>
                             </select>
                         </label>
                         </p>
+                         
+                    </div>
+                    <br/><br/><br/>
+                    <br/><br/><br/>
+                    <br/><br/><br/>
+                    <div className="ticket-btn-container">
+                        <button onClick={() => this.props.openModal("confirm")}className="ticket-btn">Register</button>
                     </div>
                 </form>
             </div>

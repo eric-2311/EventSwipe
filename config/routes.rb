@@ -8,6 +8,7 @@ Rails.application.routes.draw do
     get '/users/email', to: 'users#email'
     resources :users
     resources :events
+    resources :registrations
     resource :session
   end
 
