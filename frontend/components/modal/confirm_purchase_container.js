@@ -1,14 +1,15 @@
 import { connect } from 'react-redux';
 import { createRegistration } from '../../actions/registration_actions';
+// import { fetch}
 import ConfirmPurchase from './confirm_purchase';
 
-// const mSTP = (state, ownProps) => ({
-//     registration: state.entities.events[ownProps.match.params.eventId],
-//     user: state.entities.users[session.id]
-// })
+const mSTP = ({ session, entities: { users } }) => ({
+    // registration: state.entities.events[ownProps.match.params.eventId],
+    user: users[session.id]
+})
 
 const mDTP = dispatch => ({
     createRegistration: registration => dispatch(createRegistration(registration))
 })
 
-export default connect(null, mDTP)(ConfirmPurchase);
+export default connect(mSTP, mDTP)(ConfirmPurchase);

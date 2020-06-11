@@ -1441,18 +1441,49 @@ var ConfirmPurchase = /*#__PURE__*/function (_React$Component) {
       // if (!this.props.registration){
       //     return null;
       // }
-      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
-        className: "confirm"
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, "Confirm Registration"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
-        type: "text",
-        placeHolder: "First name"
-      })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
-        type: "text",
-        placeHolder: "Last name"
-      })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
-        type: "text",
-        placeHolder: "Email"
-      })));
+      // debugger
+      if (!this.props.user) {
+        return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
+          className: "confirm"
+        }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+          className: "confirm-container"
+        }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", {
+          className: "confirm-text"
+        }, "Confirm Registration"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
+          className: "confirm-first-container"
+        }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+          className: "confirm-first",
+          type: "text",
+          onChange: this.update('firstName'),
+          placeholder: "First name"
+        })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
+          className: "confirm-last-container"
+        }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+          className: "confirm-last",
+          type: "text",
+          onChange: this.update('lastName'),
+          placeholder: "Last name"
+        })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
+          className: "confirm-email-container"
+        }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+          className: "confirm-email",
+          type: "text",
+          onChange: this.update('email'),
+          placeholder: "Email"
+        })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+          className: "confirm-btn"
+        }, "Confirm")));
+      } else {
+        return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
+          className: "confirm"
+        }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
+          className: "confirm-text"
+        }, "Please confirm your registration ", this.props.user.first_name), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+          className: "confirm-btn-container"
+        }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+          className: "confirm-btn"
+        }, "Confirm")));
+      }
     }
   }]);
 
@@ -1476,11 +1507,18 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _actions_registration_actions__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../actions/registration_actions */ "./frontend/actions/registration_actions.js");
 /* harmony import */ var _confirm_purchase__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./confirm_purchase */ "./frontend/components/modal/confirm_purchase.jsx");
 
+ // import { fetch}
 
- // const mSTP = (state, ownProps) => ({
-//     registration: state.entities.events[ownProps.match.params.eventId],
-//     user: state.entities.users[session.id]
-// })
+
+
+var mSTP = function mSTP(_ref) {
+  var session = _ref.session,
+      users = _ref.entities.users;
+  return {
+    // registration: state.entities.events[ownProps.match.params.eventId],
+    user: users[session.id]
+  };
+};
 
 var mDTP = function mDTP(dispatch) {
   return {
@@ -1490,7 +1528,7 @@ var mDTP = function mDTP(dispatch) {
   };
 };
 
-/* harmony default export */ __webpack_exports__["default"] = (Object(react_redux__WEBPACK_IMPORTED_MODULE_0__["connect"])(null, mDTP)(_confirm_purchase__WEBPACK_IMPORTED_MODULE_2__["default"]));
+/* harmony default export */ __webpack_exports__["default"] = (Object(react_redux__WEBPACK_IMPORTED_MODULE_0__["connect"])(mSTP, mDTP)(_confirm_purchase__WEBPACK_IMPORTED_MODULE_2__["default"]));
 
 /***/ }),
 
@@ -1551,7 +1589,8 @@ var Modal = function Modal(_ref) {
 
 var mSTP = function mSTP(state) {
   return {
-    modal: state.ui.modal
+    modal: state.ui.modal,
+    user: state.entities.users[state.session.id]
   };
 };
 
@@ -1650,7 +1689,7 @@ var TicketPurchaseForm = /*#__PURE__*/function (_React$Component) {
         });
       } else if (title === 'Anime Con 2020') {
         return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
-          className: "event-show-pic",
+          className: "ticket-show-pic",
           src: window.animeURL
         });
       } else if (title === 'Frozen On Ice') {
@@ -2484,7 +2523,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _store_store__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./store/store */ "./frontend/store/store.js");
 /* harmony import */ var _components_root__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./components/root */ "./frontend/components/root.jsx");
 /* harmony import */ var _fortawesome_fontawesome_svg_core__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @fortawesome/fontawesome-svg-core */ "./node_modules/@fortawesome/fontawesome-svg-core/index.es.js");
-/* harmony import */ var _fortawesome_free_brands_svg_icons__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @fortawesome/free-brands-svg-icons */ "./node_modules/@fortawesome/free-brands-svg-icons/index.es.js");
+/* harmony import */ var _fortawesome_free_brands_svg_icons__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @fortawesome/free-brands-svg-icons */ "./node_modules/@fortawesome/free-brands-svg-icons/index.es.js");
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
 
@@ -2493,7 +2532,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
 
 
-_fortawesome_fontawesome_svg_core__WEBPACK_IMPORTED_MODULE_4__["library"].add(_fortawesome_free_brands_svg_icons__WEBPACK_IMPORTED_MODULE_6__["fab"]);
+_fortawesome_fontawesome_svg_core__WEBPACK_IMPORTED_MODULE_4__["library"].add(_fortawesome_free_brands_svg_icons__WEBPACK_IMPORTED_MODULE_5__["fab"]);
 document.addEventListener('DOMContentLoaded', function () {
   var root = document.getElementById('root');
   var store;

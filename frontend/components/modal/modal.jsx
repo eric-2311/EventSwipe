@@ -32,7 +32,8 @@ const Modal = ({modal, closeModal}) => {
 }
 
 const mSTP = state => ({
-    modal: state.ui.modal
+    modal: state.ui.modal,
+    user: state.entities.users[state.session.id]
 })
 
 const mDTP = dispatch => ({

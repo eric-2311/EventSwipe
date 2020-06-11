@@ -26,7 +26,7 @@ class TicketPurchaseForm extends React.Component{
         } else if (title === 'Toy Drive'){
             return <img className="ticket-show-pic" src={window.toyURL} />
         } else if (title === 'Anime Con 2020'){
-            return <img className="event-show-pic" src={window.animeURL} />
+            return <img className="ticket-show-pic" src={window.animeURL} />
         } else if (title === 'Frozen On Ice'){
             return <img className="ticket-show-pic" src={window.frozenURL} />
         } else if (title === 'Central Park Picnic Day'){

@@ -22,27 +22,47 @@ class ConfirmPurchase extends React.Component{
         // if (!this.props.registration){
         //     return null;
         // }
-
-        return (
-            <form className="confirm">
-                <h1>Confirm Registration</h1>
-                <label>
-                    <input
-                    type="text"
-                    placeHolder="First name"/>
-                </label>
-                <label>
-                    <input
-                    type="text"
-                    placeHolder="Last name"/>
-                </label>
-                <label>
-                    <input
-                    type="text"
-                    placeHolder="Email"/>
-                </label>
-            </form>
-        )
+        // debugger
+        if (!this.props.user){
+            return (
+                <form className="confirm">
+                    <div className="confirm-container">
+                        <h1 className="confirm-text">Confirm Registration</h1>
+                        <label className="confirm-first-container">
+                            <input
+                            className="confirm-first"
+                            type="text"
+                            onChange={this.update('firstName')}
+                            placeholder="First name"/>
+                        </label>
+                        <label className="confirm-last-container">
+                            <input
+                            className="confirm-last"
+                            type="text"
+                            onChange={this.update('lastName')}
+                            placeholder="Last name"/>
+                        </label>
+                        <label className="confirm-email-container">
+                            <input
+                            className="confirm-email"
+                            type="text"
+                            onChange={this.update('email')}
+                            placeholder="Email"/>
+                        </label>
+                        <button className="confirm-btn">Confirm</button>
+                    </div>
+                </form>
+            )
+        } else {
+            return (
+                <form className="confirm">
+                    <p className="confirm-text">Please confirm your registration {this.props.user.first_name}</p>
+                    <div className="confirm-btn-container">
+                        <button className="confirm-btn">Confirm</button>
+                    </div>
+                </form>
+            )
+        }
     }
 }
 
