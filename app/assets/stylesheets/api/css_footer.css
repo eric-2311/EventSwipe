@@ -13,6 +13,14 @@
     /* flex-shrink: 0; */
 }
 
+.fa-linkedin{
+    color: white;
+}
+
+.fa-github{
+    color: white;
+}
+
 .footer-nav{
     display: flex;
     justify-content: center;
