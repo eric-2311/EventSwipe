@@ -5,7 +5,7 @@ class EventShow extends React.Component{
         super(props);
         // debugger
         this.selectImage = this.selectImage.bind(this);
-        this.convertDate = this.convertDate.bind(this);
+        // this.convertDate = this.convertDate.bind(this);
         this.eventMonth = this.eventMonth.bind(this);
         this.eventDay = this.eventDay.bind(this);
     }
@@ -14,11 +14,6 @@ class EventShow extends React.Component{
         // debugger
         this.props.fetchEvent(this.props.match.params.eventId);
         this.props.fetchEvents();
-    }
-
-    convertDate(date){
-        const formatDate = new Date(date)
-        return `${formatDate.toLocaleString('en-US')}`
     }
 
     eventMonth(date){
@@ -125,10 +120,12 @@ class EventShow extends React.Component{
                         <div className="show-price">
                             ${this.props.event.price}
                         </div>
+                        <button className="tickets"
+                        onClick={() => this.props.openModal("purchase")}>Register</button>
                     </div>
-                    
+                      
                 </div>
-                
+              
             </div>
         )
     }
