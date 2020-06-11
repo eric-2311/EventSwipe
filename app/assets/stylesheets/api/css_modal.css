@@ -126,11 +126,15 @@
     margin: auto;
 }
 
+.confirm-btn:hover{
+    cursor: pointer;
+}
+
 .confirm-text{
     font-size: 32px;
     text-align: center;
     padding-top: 100px;
-    color: rgb(31, 19, 60)
+    color: rgb(31, 19, 60);
 }
 
 .confirm-first-container{
@@ -154,9 +158,46 @@
 
 .confirm-email-container{
     padding-top: 10px;
-    padding-bottome: 10px;
+    padding-bottom: 10px;
 }
 
 .confirm-email{
     padding: 5px;
+}
+
+.confirm-thanks{
+    background-color: white;
+    height: 200px;
+    width: 400px;
+    text-align: center;
+    padding-top: 20px;
+}
+
+.thanks{
+    display: flex;
+    /* justify-content: center; */
+    font-weight: bold;
+    font-family: Arial, Helvetica, sans-serif;
+    color: rgb(31, 19, 60);
+}
+
+.thanks-e{
+    color: red;
+    font-weight: bold;
+}
+
+.thanks-btn-container{
+    padding-top: 60px;
+}
+
+.thanks-btn{
+    /* font-family: Arial, Helvetica, sans-serif; */
+    width: 150px;
+    background-color: red;
+    color: white;
+    height: 50px;
+}
+
+.thanks-btn:hover{
+    cursor: pointer;
 }

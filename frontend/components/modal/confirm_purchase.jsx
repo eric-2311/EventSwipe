@@ -49,7 +49,7 @@ class ConfirmPurchase extends React.Component{
                             onChange={this.update('email')}
                             placeholder="Email"/>
                         </label>
-                        <button className="confirm-btn">Confirm</button>
+                        <button onClick={() => this.props.openModal("thanks")} className="confirm-btn">Confirm</button>
                     </div>
                 </form>
             )
@@ -58,7 +58,7 @@ class ConfirmPurchase extends React.Component{
                 <form className="confirm">
                     <p className="confirm-text">Please confirm your registration {this.props.user.first_name}</p>
                     <div className="confirm-btn-container">
-                        <button className="confirm-btn">Confirm</button>
+                        <button onClick={() => this.props.openModal("thanks")} className="confirm-btn">Confirm</button>
                     </div>
                 </form>
             )

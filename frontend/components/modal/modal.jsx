@@ -3,6 +3,7 @@ import { closeModal } from '../../actions/modal_actions';
 import { connect } from 'react-redux';
 import TicketPurchaseFormContainer from './ticket_purchase_form_container';
 import ConfirmPurchaseContainer from './confirm_purchase_container';
+import ThanksContainer from './thanks_container';
 
 const Modal = ({modal, closeModal}) => {
     if(!modal){
@@ -17,6 +18,9 @@ const Modal = ({modal, closeModal}) => {
             break;
         case "confirm":
             component = <ConfirmPurchaseContainer />
+            break;
+        case "thanks":
+            component = <ThanksContainer />
             break;
         default:
             return null;

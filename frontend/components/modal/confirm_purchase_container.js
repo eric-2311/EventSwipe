@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import { createRegistration } from '../../actions/registration_actions';
-// import { fetch}
+import { openModal } from '../../actions/modal_actions';
 import ConfirmPurchase from './confirm_purchase';
 
 const mSTP = ({ session, entities: { users } }) => ({
@@ -9,7 +9,8 @@ const mSTP = ({ session, entities: { users } }) => ({
 })
 
 const mDTP = dispatch => ({
-    createRegistration: registration => dispatch(createRegistration(registration))
+    createRegistration: registration => dispatch(createRegistration(registration)),
+    openModal: modal => dispatch(openModal(modal))
 })
 
 export default connect(mSTP, mDTP)(ConfirmPurchase);
