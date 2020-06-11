@@ -1443,9 +1443,14 @@ var TicketPurchaseForm = /*#__PURE__*/function (_React$Component) {
   var _super = _createSuper(TicketPurchaseForm);
 
   function TicketPurchaseForm(props) {
+    var _this;
+
     _classCallCheck(this, TicketPurchaseForm);
 
-    return _super.call(this, props);
+    _this = _super.call(this, props);
+    _this.convertDate = _this.convertDate.bind(_assertThisInitialized(_this));
+    _this.selectImage = _this.selectImage.bind(_assertThisInitialized(_this));
+    return _this;
   }
 
   _createClass(TicketPurchaseForm, [{
@@ -1461,6 +1466,71 @@ var TicketPurchaseForm = /*#__PURE__*/function (_React$Component) {
       return "".concat(formatDate.toLocaleString('en-US'));
     }
   }, {
+    key: "selectImage",
+    value: function selectImage(title) {
+      if (title === 'EDCLV') {
+        return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+          className: "event-show-pic",
+          src: window.edclvURL
+        });
+      } else if (title === 'Oktoberfest NYC') {
+        return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+          className: "event-show-pic",
+          src: window.oktoberfestURL
+        });
+      } else if (title === 'Toy Drive') {
+        return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+          className: "event-show-pic",
+          src: window.toyURL
+        });
+      } else if (title === 'Anime Con 2020') {
+        return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+          className: "event-show-pic",
+          src: window.animeURL
+        });
+      } else if (title === 'Frozen On Ice') {
+        return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+          className: "event-show-pic",
+          src: window.frozenURL
+        });
+      } else if (title === 'Central Park Picnic Day') {
+        return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+          className: "event-show-pic",
+          src: window.picnicURL
+        });
+      } else if (title === 'Food Drive') {
+        return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+          className: "event-show-pic",
+          src: window.food
+        });
+      } else if (title === 'Doggy Playdate NYC') {
+        return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+          className: "event-show-pic",
+          src: window.dogs
+        });
+      } else if (title === 'A Taste of the Mediterranean') {
+        return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+          className: "event-show-pic",
+          src: window.med
+        });
+      } else if (title === 'Portals') {
+        return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+          className: "event-show-pic",
+          src: window.portals
+        });
+      } else if (title === 'Gallery Showing') {
+        return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+          className: "event-show-pic",
+          src: window.gallery
+        });
+      } else if (title === 'Run For Fun!') {
+        return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+          className: "event-show-pic",
+          src: window.marathon
+        });
+      }
+    }
+  }, {
     key: "render",
     value: function render() {
       // debugger
@@ -1470,9 +1540,15 @@ var TicketPurchaseForm = /*#__PURE__*/function (_React$Component) {
 
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "ticket-form-container"
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", {
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "ticket-form-header"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", {
         className: "ticket-form-title"
-      }, this.props.event.title)));
+      }, this.props.event.title), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
+        className: "ticket-date"
+      }, this.convertDate(this.props.event.start_date), " - ", this.convertDate(this.props.event.end_date))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "ticket-img-container"
+      }, this.selectImage(this.props.event.title)))));
     }
   }]);
 
