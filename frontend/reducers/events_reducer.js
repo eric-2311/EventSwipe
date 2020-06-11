@@ -5,9 +5,11 @@ const eventsReducer = (state = {}, action) => {
 
     switch(action.type){
         case RECEIVE_ALL_EVENTS:
+            // debugger
             return action.events;
         case RECEIVE_EVENT:
-            return Object.assign({}, state, { [action.event.id]: action.eventId });
+            // debugger
+            return Object.assign({}, state, { [action.event.id]: action.event });
         case REMOVE_EVENT:
             const newState = Object.assign({}, state);
             delete newState[action.eventId];

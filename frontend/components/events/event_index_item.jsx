@@ -51,7 +51,7 @@ class EventIndexItem extends React.Component{
                 <br/>
                 <div className="index-item-container">
                 <div className="event-date">
-                    {this.convertDate(this.props.startDate)} - {this.convertDate(this.props.endDate)}
+                    {this.convertDate(this.props.startDate)}
                 </div>
                 <br/>
                 {/* {this.props.description} */}

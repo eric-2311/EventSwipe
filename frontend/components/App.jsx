@@ -9,9 +9,11 @@ import LoginFormContainer from './session/login_form_container';
 import SignupFormContainer from './session/signup_form_container';
 import SplashContainer from './session/splash_container';
 import Footer from './footer/footer';
+import Modal from './modal/modal';
 
 const App = () => (
-    <div className="nav-container">
+    <div>
+        <Route path="/" component={Modal} /> 
         <header className="nav">
             <Link to="/" className="nav-logo">eventswipe</Link>
             <GreetingContainer />
@@ -23,7 +25,9 @@ const App = () => (
             <AuthRoute exact path="/login" component={LoginFormContainer} />
             <AuthRoute exact path="/signup" component={SignupFormContainer} />
         </main>
-        <Footer className="footer-container" />
+        <footer className="footer-container">
+            <Footer  />
+        </footer>
     </div>
 )
 
