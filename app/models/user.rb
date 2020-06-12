@@ -7,6 +7,11 @@ class User < ApplicationRecord
 
     attr_reader :password
 
+    has_many :hosted_events,
+        primary_key: :id,
+        foreign_key: :event_id,
+        class_name: :Event
+
     def self.generate_session_token
         SecureRandom::urlsafe_base64
     end

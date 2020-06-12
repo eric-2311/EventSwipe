@@ -6,6 +6,17 @@ export const SIGN_UP_USER = 'SIGN_UP_USER';
 export const RECEIVE_EMAIL = 'RECEIVE_EMAIL';
 export const CLEAR_ERRORS = 'CLEAR_ERRORS';
 export const RECEIVE_SESSION_ERRORS = 'RECEIVE_SESSION_ERRORS';
+export const RECEIVE_USERS = 'RECEIVE_USERS';
+
+const receiveUsers = users => ({
+    type: RECEIVE_USERS,
+    users
+})
+
+export const fetchUsers = () => dispatch => (
+    SessionApiUtils.getUsers()
+        .then(users => dispatch(receiveUsers(users)))
+)
 
 const receiveCurrentUser = currentUser => ({
     type: RECEIVE_CURRENT_USER,

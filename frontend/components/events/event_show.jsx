@@ -14,6 +14,7 @@ class EventShow extends React.Component{
         // debugger
         this.props.fetchEvent(this.props.match.params.eventId);
         this.props.fetchEvents();
+        this.props.fetchUsers();
     }
 
     eventMonth(date){

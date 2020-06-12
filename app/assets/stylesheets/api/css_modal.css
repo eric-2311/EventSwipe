@@ -19,15 +19,185 @@
     font-family: Arial, Helvetica, sans-serif;
     font-size: 18px;
     text-align: center;
-    /* font-weight: bold; */
 }
 
 .ticket-form-header{
     display: flex;
-    /* justify-content: center; */
     flex-direction: column;
+    border-bottom: 1px solid lightgray;
+    width: 800px;
+    position: absolute;
+}
+
+.ticket-form-container{
+    background-color: white;
+    height: 720px;
+    width: 1070px;
+    color: rgb(31, 19, 60);
 }
 
 .ticket-date{
     text-align: center;
+}
+
+.ticket-text{
+    font-size: 18px;
+    display: flex;
+    flex-direction: column;
+}
+
+.ticket-dropdown{
+    width: 50px;
+    margin-left: 10px;
+}
+
+.ticket-option{
+    /* display: flex; */
+    padding-top: 50px;
+    padding-left: 50px;   
+    /* border: 1px solid black;  */
+}
+
+.ticket-img-container{
+    display: flex;
+    height: 150px;
+    width: 270px;
+}
+
+.ticket-show-pic{
+    height: 150px;
+    width: 270px;
+}
+
+.ticket-aside{
+    display: flex;
+    justify-content: flex-end;
+    width: 100%;
+}
+
+.ticket-btn-container{
+    display: flex;
+    justify-content: center;
+    /* border: 1px solid black;
+    align-content: flex-end; */
+}
+
+.ticket-btn{
+    color: white;
+    background-color: red;
+    width: 300px;
+    height: 50px;
+}
+
+.ticket-btn:hover{
+    cursor: pointer;
+}
+
+.confirm{
+    background-color: white;
+    height: 500px;
+    width: 850px;
+}
+
+.confirm-container{
+    display: flex;
+    border: 1px solid black;
+    flex-direction: column;
+    height: 500px;
+    font-family: Arial, Helvetica, sans-serif;
+    align-items: center;
+    justify-content: center;
+}
+
+.confirm-btn-container{
+    height: 200px;
+    display: flex;
+    align-items: flex-end;
+    /* border: 1px solid red; */
+    justify-content: center;
+}
+
+.confirm-btn{
+    /* border: 1px solid black; */
+    width: 300px;
+    height: 50px;
+    background-color: red;
+    color: white;
+    margin: auto;
+}
+
+.confirm-btn:hover{
+    cursor: pointer;
+}
+
+.confirm-text{
+    font-size: 32px;
+    text-align: center;
+    padding-top: 100px;
+    color: rgb(31, 19, 60);
+}
+
+.confirm-first-container{
+    /* border: 1px solid red; */
+    padding-top: 15px;
+    padding-bottom: 10px;
+}
+
+.confirm-first{
+    padding: 5px;
+}
+
+.confirm-last-container{
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+.confirm-last{
+    padding: 5px;
+}
+
+.confirm-email-container{
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+.confirm-email{
+    padding: 5px;
+}
+
+.confirm-thanks{
+    background-color: white;
+    height: 200px;
+    width: 400px;
+    text-align: center;
+    padding-top: 20px;
+}
+
+.thanks{
+    display: flex;
+    /* justify-content: center; */
+    font-weight: bold;
+    font-family: Arial, Helvetica, sans-serif;
+    color: rgb(31, 19, 60);
+}
+
+.thanks-e{
+    color: red;
+    font-weight: bold;
+}
+
+.thanks-btn-container{
+    padding-top: 60px;
+}
+
+.thanks-btn{
+    /* font-family: Arial, Helvetica, sans-serif; */
+    width: 150px;
+    background-color: red;
+    color: white;
+    height: 50px;
+}
+
+.thanks-btn:hover{
+    cursor: pointer;
 }

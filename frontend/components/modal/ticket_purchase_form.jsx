@@ -20,29 +20,29 @@ class TicketPurchaseForm extends React.Component{
 
     selectImage(title){
         if (title === 'EDCLV'){
-            return <img className= "event-show-pic" src={window.edclvURL} />
+            return <img className= "ticket-show-pic" src={window.edclvURL} />
         } else if (title === 'Oktoberfest NYC'){
-            return <img className="event-show-pic" src={window.oktoberfestURL} />
+            return <img className="ticket-show-pic" src={window.oktoberfestURL} />
         } else if (title === 'Toy Drive'){
-            return <img className="event-show-pic" src={window.toyURL} />
+            return <img className="ticket-show-pic" src={window.toyURL} />
         } else if (title === 'Anime Con 2020'){
-            return <img className="event-show-pic" src={window.animeURL} />
+            return <img className="ticket-show-pic" src={window.animeURL} />
         } else if (title === 'Frozen On Ice'){
-            return <img className="event-show-pic" src={window.frozenURL} />
+            return <img className="ticket-show-pic" src={window.frozenURL} />
         } else if (title === 'Central Park Picnic Day'){
-            return <img className="event-show-pic" src={window.picnicURL} />
+            return <img className="ticket-show-pic" src={window.picnicURL} />
         } else if (title === 'Food Drive'){
-            return <img className="event-show-pic" src={window.food} />
+            return <img className="ticket-show-pic" src={window.food} />
         } else if (title === 'Doggy Playdate NYC'){
-            return <img className="event-show-pic" src={window.dogs} />
+            return <img className="ticket-show-pic" src={window.dogs} />
         } else if (title === 'A Taste of the Mediterranean'){
-            return <img className="event-show-pic" src={window.med} />
+            return <img className="ticket-show-pic" src={window.med} />
         } else if (title === 'Portals'){
-            return <img className="event-show-pic" src={window.portals} />
+            return <img className="ticket-show-pic" src={window.portals} />
         } else if (title === 'Gallery Showing'){
-            return <img className="event-show-pic" src={window.gallery} />
+            return <img className="ticket-show-pic" src={window.gallery} />
         } else if (title === 'Run For Fun!'){
-            return <img className="event-show-pic" src={window.marathon} />
+            return <img className="ticket-show-pic" src={window.marathon} />
         }
     }
 
@@ -58,12 +58,36 @@ class TicketPurchaseForm extends React.Component{
                 <form>
                     <div className="ticket-form-header">
                         <h1 className="ticket-form-title">{this.props.event.title}</h1>
-                        <p className="ticket-date">{this.convertDate(this.props.event.start_date)} - {this.convertDate(this.props.event.end_date)}</p>
+                        <p className="ticket-date">{this.convertDate(this.props.event.start_date)} - {this.convertDate(this.props.event.end_date)}</p>                       
                     </div>
-                    <div>
-                        <div className="ticket-img-container">
+                    <aside className="ticket-aside">
+                       <div className="ticket-img-container">
                             {this.selectImage(this.props.event.title)}
-                        </div>
+                       </div>
+                       {/* <div>
+                           Register for this event?
+                       </div> */}
+                    </aside>
+                    <div className="ticket-option">
+                        <p className="ticket-text">Would you like to register for this event?
+                        <br/>
+                        <br/>
+                        <label>Please select number of registrations
+                            <select className="ticket-dropdown">
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                                <option value="4">4</option>
+                            </select>
+                        </label>
+                        </p>
+                         
+                    </div>
+                    <br/><br/><br/>
+                    <br/><br/><br/>
+                    <br/><br/><br/>
+                    <div className="ticket-btn-container">
+                        <button onClick={() => this.props.openModal("confirm")}className="ticket-btn">Register</button>
                     </div>
                 </form>
             </div>

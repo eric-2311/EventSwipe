@@ -2,6 +2,8 @@ import React from 'react';
 import { closeModal } from '../../actions/modal_actions';
 import { connect } from 'react-redux';
 import TicketPurchaseFormContainer from './ticket_purchase_form_container';
+import ConfirmPurchaseContainer from './confirm_purchase_container';
+import ThanksContainer from './thanks_container';
 
 const Modal = ({modal, closeModal}) => {
     if(!modal){
@@ -13,6 +15,12 @@ const Modal = ({modal, closeModal}) => {
     switch(modal){
         case "purchase":
             component = <TicketPurchaseFormContainer />
+            break;
+        case "confirm":
+            component = <ConfirmPurchaseContainer />
+            break;
+        case "thanks":
+            component = <ThanksContainer />
             break;
         default:
             return null;
@@ -28,7 +36,8 @@ const Modal = ({modal, closeModal}) => {
 }
 
 const mSTP = state => ({
-    modal: state.ui.modal
+    modal: state.ui.modal,
+    user: state.entities.users[state.session.id]
 })
 
 const mDTP = dispatch => ({

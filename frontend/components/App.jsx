@@ -1,5 +1,5 @@
 import React from 'react';
-import { Switch, Link, Route } from 'react-router-dom';
+import { Link, Route } from 'react-router-dom';
 import { AuthRoute } from '../util/route_util';
 
 import EventShowContainer from './events/event_show_container';
