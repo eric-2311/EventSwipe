@@ -1,4 +1,7 @@
-import { RECEIVE_CURRENT_USER, LOGOUT_CURRENT_USER, SIGN_UP_USER, RECEIVE_EMAIL } from '../actions/session_actions';
+import { RECEIVE_CURRENT_USER, 
+        LOGOUT_CURRENT_USER, 
+        SIGN_UP_USER, 
+        RECEIVE_EMAIL } from '../actions/session_actions';
 
 const _nullUser = Object.freeze({ id: null })
 
@@ -18,7 +21,7 @@ const sessionReducer = (state = _nullUser, action) => {
                 flag = true;
             }
             const newState = Object.assign({}, state, { email: action.email, flag: flag });
-            return newState
+            return newState;
         case LOGOUT_CURRENT_USER:
             return _nullUser;
         default:
