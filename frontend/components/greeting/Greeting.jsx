@@ -15,14 +15,14 @@ class Greeting extends React.Component {
                     <div className="menu-btn">
                         <img src={window.profpicURL} className="profile-pic"/>
                         <ul className="menu-dropdown">
-                            <li className="menu-item"><button>Profile</button></li>
+                            {/* <li className="menu-item"><button>Profile</button></li>
                             <li className="menu-item"><button>Tickets</button></li>
                             <li className="menu-item"><button>Liked</button></li>
                             <li className="menu-item"><button>Following</button></li>
                             <li className="menu-item"><button>Collections</button></li>
                             <li className="menu-item"><button>Interests</button></li>
                             <li className="menu-item"><button>Manage Events</button></li>
-                            <li className="menu-item"><button>Account Settings</button></li>
+                            <li className="menu-item"><button>Account Settings</button></li> */}
                             <li className="menu-item"><button className="logout" onClick={this.props.logout}>Logout</button></li>
                         </ul>
                     </div>
