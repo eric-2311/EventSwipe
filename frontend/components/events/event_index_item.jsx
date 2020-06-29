@@ -46,7 +46,9 @@ class EventIndexItem extends React.Component{
         return (
             <li className="event-index-item">
                 <div className="index-item-img">
-                    {this.selectImage(this.props.title)}
+                    <Link to={`/events/${this.props.id}`}>
+                        {this.selectImage(this.props.title)}
+                    </Link>
                 </div>
                 <br/>
                 <div className="index-item-container">
