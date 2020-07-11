@@ -3,7 +3,6 @@ import React from 'react';
 class EventShow extends React.Component{
     constructor(props){
         super(props);
-        // debugger
         this.selectImage = this.selectImage.bind(this);
         // this.convertDate = this.convertDate.bind(this);
         this.eventMonth = this.eventMonth.bind(this);
@@ -11,7 +10,6 @@ class EventShow extends React.Component{
     }
 
     componentDidMount(){
-        // debugger
         this.props.fetchEvent(this.props.match.params.eventId);
         this.props.fetchEvents();
         this.props.fetchUsers();
@@ -88,12 +86,11 @@ class EventShow extends React.Component{
     }
 
     render(){
-        // debugger
 
         if (!this.props.event){
             return null;
         }
-        // debugger
+        
         return (
             <div className="show-container">
                 <div className="show-back-container">
