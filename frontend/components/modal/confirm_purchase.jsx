@@ -19,10 +19,7 @@ class ConfirmPurchase extends React.Component{
     }
     
     render(){
-        // if (!this.props.registration){
-        //     return null;
-        // }
-        // debugger
+        
         if (!this.props.user){
             return (
                 <form className="confirm">

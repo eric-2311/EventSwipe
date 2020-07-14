@@ -4,7 +4,6 @@ class EventShow extends React.Component{
     constructor(props){
         super(props);
         this.selectImage = this.selectImage.bind(this);
-        // this.convertDate = this.convertDate.bind(this);
         this.eventMonth = this.eventMonth.bind(this);
         this.eventDay = this.eventDay.bind(this);
     }
@@ -90,7 +89,11 @@ class EventShow extends React.Component{
         if (!this.props.event){
             return null;
         }
+<<<<<<< HEAD
         
+=======
+    
+>>>>>>> css
         return (
             <div className="show-container">
                 <div className="show-back-container">
@@ -113,8 +116,6 @@ class EventShow extends React.Component{
                             {this.props.event.title}
                         </div>
                         
-                        {/* {this.props.event.start_date}
-                        {this.props.event.end_date} */}
                         <div className="show-price">
                             ${this.props.event.price}
                         </div>
