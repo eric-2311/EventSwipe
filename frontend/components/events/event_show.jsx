@@ -89,11 +89,7 @@ class EventShow extends React.Component{
         if (!this.props.event){
             return null;
         }
-<<<<<<< HEAD
         
-=======
-    
->>>>>>> css
         return (
             <div className="show-container">
                 <div className="show-back-container">
