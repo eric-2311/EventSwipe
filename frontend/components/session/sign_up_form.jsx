@@ -3,7 +3,6 @@ import { Link } from 'react-router-dom';
 
 class SignUpForm extends React.Component {
     constructor(props){
-        // debugger
         super(props);
         this.state = {
             email: '',
@@ -29,15 +28,7 @@ class SignUpForm extends React.Component {
         e.preventDefault();
         const user = Object.assign({}, this.state)
         this.props.processForm(user)
-            // .then(this.props.login(this.state))
-        // this.setState({
-        //     email: '',
-        //     first_name: '',
-        //     last_name: '',
-        //     password: ''
-        // })
-            // 
-        // <Redirect to="/" />
+            
     }
 
     renderErrors() {
